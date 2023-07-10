@@ -12,5 +12,23 @@
 $routes = array(
 	'/test' => 'test#index',
 	'/' => 'index#index',
-	'/login' =>'index#login'
+	'/login' =>'index#login',
+	'/menu' => 'index#menu',
 );
+
+/* 
+
+test#index
+
+controllers/testController.php
+indexAction()
+
+controllers/indexController.php
+indexAction()
+
+controllers/indexController.php
+loginAction()
+
+*/
+
+
