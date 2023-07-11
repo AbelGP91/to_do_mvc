@@ -1,0 +1,49 @@
+{
+    "usuarios": [
+        {
+            "idUsuario": 1,
+            "nom_usuari": "Usuario1",
+            "cognom1_usuari": "Apellido1",
+            "cognom2_usuari": "Apellido2",
+            "email_usuari": "usuario1@example.com",
+            "password_usuari": "contra1"
+        },
+        {
+            "idUsuario": 2,
+            "nom_usuari": "Usuario2",
+            "cognom1_usuari": "Apellido1",
+            "cognom2_usuari": "Apellido2",
+            "email_usuari": "usuario2@example.com",
+            "password_usuari": "contra2"
+        }
+    ],
+    "tasques": [
+        {
+            "idTasques": 1,
+            "nom_tasques": "Tarea1",
+            "descrip_tasques": "Descripci\u00f3n de la tarea 1",
+            "estat_tasques": "En proceso",
+            "inici_tasques": "2023-06-27 09:00:00",
+            "fi_tasques": "2023-06-27 14:00:00",
+            "Usuario_idUsuario": 1
+        },
+        {
+            "idTasques": 2,
+            "nom_tasques": "Tarea2",
+            "descrip_tasques": "Descripci\u00f3n de la tarea 2",
+            "estat_tasques": "Completada",
+            "inici_tasques": "2023-06-28 10:00:00",
+            "fi_tasques": "2023-06-28 12:00:00",
+            "Usuario_idUsuario": 1
+        },
+        {
+            "idTasques": 3,
+            "nom_tasques": "Tarea3",
+            "descrip_tasques": "Descripci\u00f3n de la tarea 3",
+            "estat_tasques": "En proceso",
+            "inici_tasques": "2023-06-29 09:00:00",
+            "fi_tasques": "2023-06-29 14:00:00",
+            "Usuario_idUsuario": 2
+        }
+    ]
+}
