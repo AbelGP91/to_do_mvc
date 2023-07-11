@@ -30,7 +30,7 @@ class IndexController extends ApplicationController
         {   
             echo "Logueado";
 
-            $_SESSION['usuario'] = $array['idUsuario'];
+            $_SESSION['usuario'] = $array['id'];
             header('Location: /mvc/web/menu');
         }
         else{
