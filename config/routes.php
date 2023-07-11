@@ -14,6 +14,10 @@ $routes = array(
 	'/' => 'index#index',
 	'/login' =>'index#login',
 	'/menu' => 'index#menu',
+	'/options' => 'menu#options',
+	'/crearTasca' => 'menu#crearTasca',
+	'/llistarTasques' => 'menu#llistarTasques',
+	
 );
 
 /* 
