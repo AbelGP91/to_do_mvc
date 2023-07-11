@@ -26,7 +26,21 @@ class MenuController extends ApplicationController {
 
     public function llistarTasquesAction(){
 
+        $tasques = new Tareas();
 
+        $tasquesId = $tasques->findTareasById($_SESSION['usuario']);
+               
+        $_SESSION['tasques'] = $tasquesId;
+
+        /*
+
+        var_dump($_SESSION['tareas']);
+        die();
+
+        */
+
+                
     }
 
 }
+
