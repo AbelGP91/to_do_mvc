@@ -18,7 +18,7 @@ class IndexController extends ApplicationController
             $_SESSION["usuarios"] = $usuariosEncontrados;
             echo "se encontraron usuarios";
             // Redireccionar al usuario a la página de menú
-            //header('Location: mvc/web/menu');
+            header('Location: menu/');
             
         } else {
             // Mostrar mensaje de error si no se encontraron usuarios
