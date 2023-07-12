@@ -42,5 +42,22 @@ class MenuController extends ApplicationController {
                 
     }
 
+    public function addDataAction(){
+
+        $tasques = new Tareas();
+
+        $titulo=$_POST['titulo'];
+        $descripcio=$_POST['descripcio'];
+        $dataInici=$_POST['dataInici'];
+        $dataFi=$_POST['dataFi'];
+        $estat=$_POST['estat'];
+
+        $arrayData = [$titulo, $descripcio, $dataInici, $dataFi, $estat, $_SESSION['usuario']];
+
+        $tasques->addData($arrayData);
+
+
+    }
+
 }
 
