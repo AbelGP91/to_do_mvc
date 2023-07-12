@@ -8,16 +8,22 @@ class IndexController extends ApplicationController
     }
 
     public function loginAction(){
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Obtener los datos enviados por el formulario
-            $email = $_POST["email"];
-            $password = $_POST["password"];
         
-            // Leer el contenido del archivo JSON
-            //$data = json_decode(file_get_contents('../../modelo/usuarios.json'), true);
-            
+        $users = new Usuarios();
 
+        $usuariosEncontrados = $users->findByEmailPassword($_POST['email'], $_POST['password']);
+        
+        if (!empty($usuariosEncontrados)) {
+            // Guardar información de los usuarios en la sesión
+            $_SESSION["usuarios"] = $usuariosEncontrados;
+            echo "se encontraron usuarios";
+            // Redireccionar al usuario a la página de menú
+            //header('Location: mvc/web/menu');
             
+        } else {
+            // Mostrar mensaje de error si no se encontraron usuarios
+            echo "No se encontraron usuarios";
+        }
 
         }
 
