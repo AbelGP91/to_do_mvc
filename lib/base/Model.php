@@ -126,5 +126,5 @@ class Model
 	{
 		$statement = $this->_dbh->prepare("delete from " . $this->_table . " where id = ?");
 		return $statement->execute(array($id));
-	}
+	}     
 }

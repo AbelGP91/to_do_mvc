@@ -9,6 +9,11 @@
  * '/' => 'index#index',
  * '/calendar' => 'calendar#index'
  */
+
 $routes = array(
-	'/test' => 'test#index'
+	'/test' => 'test#index',
+	'/' => 'login#login',
+	// login es loginControler y #juan es la funcion JuanAction que te dirige a view/scripts/juan/juan.phtml
+	//'/login' => 'menu#menu'
+	'/login' => 'login#login'
 );
