@@ -3,11 +3,12 @@
 class MenuController extends ApplicationController{
 
     public function optionsAction(){
-         echo "soy Jesucristo";
 
          if(isset($_POST['llistar'])){
             header('Location: llistarTasques');
-         }
+         }elseif(isset($_POST['crear'])){
+            header('Location: crearTasca');
+        }
     }
         
     public function crearTascaAction(){
