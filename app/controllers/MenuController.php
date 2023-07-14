@@ -28,19 +28,25 @@ class MenuController extends ApplicationController {
 
         $tasques = new Tareas();
 
-        $tasquesId = $tasques->findTareasById($_SESSION['usuario']);
-               
+        $tasquesId = $tasques->findTareasById($_SESSION['usuario']);      
+        
+        $resultado = mysqli_fetch_all($tasquesId, MYSQLI_ASSOC);
+
+        $_SESSION['arrayTasques'] = $resultado;
+            
+            
+        }
+
+        
+        /*
+        
+        $_SESSION['arrayTasques'] = $arrayTasques;
+
         $_SESSION['tasques'] = $tasquesId;
 
-        /*
-
-        var_dump($_SESSION['tareas']);
-        die();
-
         */
-
-                
-    }
+                      
+    
 
     public function addDataAction(){
 

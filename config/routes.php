@@ -19,6 +19,7 @@ $routes = array(
 	'/llistarTasques' => 'menu#llistarTasques',
 	'/addData' => 'menu#addData',
 	
+	
 );
 
 /* 
