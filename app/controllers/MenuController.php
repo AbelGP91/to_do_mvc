@@ -16,7 +16,14 @@ class MenuController extends ApplicationController{
     }
 
     public function llistarTasquesAction(){
-        //
+        $listTasks = new Tareas();
+        //var_dump($listTasks);
+        $data = array();
+        $data['tasques'] = $listTasks->getTareas();
+        // print_r($tareas);
+
+        // include '../app/views/scripts/menu/llistarTasques.phtml';
+        
     }
 
     public function addDataAction(){
