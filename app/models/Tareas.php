@@ -52,6 +52,49 @@ class Tareas extends Model {
                
 
     }
+
+    public function newData($newData){       
+
+        $mysql = new mysqli("localhost","root","","to_do");
+
+        if ($newData['titulo'] !=null){
+
+            $sql = "UPDATE to_do.tasques SET nom_tasques = '$newData[titulo]' WHERE idTasques = '$newData[idTasques]'";
+            $mysql->query($sql);
+
+        }
+
+        if ($newData['descripcio'] !=null){
+
+            $sql = "UPDATE to_do.tasques SET descrip_tasques = '$newData[descripcio]' WHERE idTasques = '$newData[idTasques]'";
+            $mysql->query($sql);
+
+        }
+
+        if ($newData['dataInici'] !=null){
+
+            $sql = "UPDATE to_do.tasques SET inici_tasques = '$newData[dataInici]' WHERE idTasques = '$newData[idTasques]'";
+            $mysql->query($sql);        
     
+        }
+
+        if ($newData['dataFi'] !=null){
+
+            $sql = "UPDATE to_do.tasques SET fi_tasques = '$newData[dataFi]' WHERE idTasques = '$newData[idTasques]'";
+            $mysql->query($sql);
+
+        }
+
+        if ($newData['estat'] !=null){
+
+            $sql = "UPDATE to_do.tasques SET estat_tasques = '$newData[estat]' WHERE idTasques = '$newData[idTasques]'";
+            $mysql->query($sql);
+
+        }
+
+        $mysql->close();
+
+    }
+
 }
 

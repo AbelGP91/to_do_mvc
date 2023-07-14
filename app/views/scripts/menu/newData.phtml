@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<?php include "../app/views/layouts/header.php";?>
+
+<body>
+
+<div class="flex justify-center items-center h-screen bg-gray-100"> 
+
+    <form name="MODIFICAR" method="post" action="modifyData" class="-mt-20 text-center rounded bg-gray-100 focus:outline-none focus:border-blue-500">
+
+        <p class="font-bold mb-2">Actualitzar nom</p>
+        <input type="text" name="titulo" size="25" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <p class="font-bold mb-2">Actualitzar descripció</p>
+        <input type="text" name="descripcio" id="descripcio" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <p class="font-bold mb-2">Actualitzar data inici</p>
+        <input type="date" name="dataInici" id="dataInici" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <p class="font-bold mb-2">Actualitzar data fi </p>
+        <input type="date" name="dataFi" id="dataFi" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <p class="font-bold mb-2">Actualitzar estat</p>
+        <input list = "estados" name = "estat" id = "estat" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <datalist id="estados">
+            <option> Pendent </option>
+            <option> En execució </option>
+            <option> Acabada </option>
+        </datalist>
+        
+        <br><br>
+        <input type="submit" value="Confirmar" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+
+    </form>
+
+</div>
+
+<?php include "../app/views/layouts/footer.php";?>
+
+</body>
+
+
+
+</html>
