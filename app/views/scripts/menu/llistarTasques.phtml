@@ -43,7 +43,27 @@
 
     ?>
 
-    </table>    
+    </table>
+    
+<script>
+
+    function confirmacion(){
+
+        var respuesta = confirm("Segur que vols eliminar la tasca?");
+        if (respuesta ==true){
+
+            return true;
+
+        }
+
+        else {
+
+            return false;
+
+        }
+    }
+
+</script>
         
 <form class="flex flex-col items-center mb-20 -mt-20" method="post" action="data">
 

@@ -7,7 +7,8 @@ class IndexController extends ApplicationController
     public function indexAction()
     {
 
-        // $this->view->message = "hello ABEL from indexController->test";
+        session_unset();
+        session_destroy();
         
     }
     

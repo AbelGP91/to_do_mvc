@@ -95,12 +95,6 @@ class MenuController extends ApplicationController {
         
     }
 
-    public function deleteDataAction(){
-        
-        // Conectamos a la BDD para eliminar la tarea
-
-    }
-
     public function modifyDataAction(){
 
         $titulo = null;
@@ -154,6 +148,16 @@ class MenuController extends ApplicationController {
         $newData = new Tareas();
 
         $newData->newData($arrayNewData);
+
+    }
+
+    public function deleteDataAction(){
+        
+        $deleteData = new Tareas();
+
+        $idTarea = $_SESSION['idTarea'];
+        
+        $deleteData->deleteData($idTarea);
 
     }
 

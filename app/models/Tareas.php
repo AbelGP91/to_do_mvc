@@ -96,5 +96,16 @@ class Tareas extends Model {
 
     }
 
+    public function deleteData($idTasca){
+
+        $mysql = new mysqli("localhost","root","","to_do");
+
+        $sql = "DELETE FROM to_do.tasques WHERE idTasques = '$idTasca'";
+        $mysql->query($sql);
+
+        $mysql->close();
+
+    }
+
 }
 
