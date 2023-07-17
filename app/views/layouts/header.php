@@ -11,8 +11,17 @@
         <a href="#" class="text-white hover:text-blue-200 px-4">Contacte</a>
       </div>
     </div>
+    
     <?php
+  if (isset($_SESSION['usuarios']) && isset($_SESSION['usuarios'][0]['idUsuario'])) {
+    $idUsuario = $_SESSION['usuarios'][0]['idUsuario'];
+} else {
+    $idUsuario = null;
+}
 
+echo '<div class="flex justify-center items-center">';
+echo '<span class="text-white">User ID: ' . $idUsuario . '</span>';
+echo '</div>';
 
 ?>
 

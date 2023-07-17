@@ -14,7 +14,15 @@ class Tareas extends Model {
         return $this->tareas;
     }
 
-   
+    public function getRuta() {
+        return $this->ruta;
+    }
+
+
+   public function putContents($rutaJson, $encodedDatos)
+    {
+        file_put_contents($rutaJson, $encodedDatos);
+    }
 
 
     

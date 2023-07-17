@@ -17,6 +17,8 @@ $routes = array(
 	'/menu' => 'index#menu',
 	'/options' => 'menu#options',
 	'/crearTasca' => 'menu#crearTasca',
+	'/addTasca' => 'menu#addTasca',
 	'/llistarTasques' => 'menu#llistarTasques',
+
 	
 );
