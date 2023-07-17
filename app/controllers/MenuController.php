@@ -20,10 +20,11 @@ class MenuController extends ApplicationController{
         //var_dump($listTasks);
         $data = array();
         $data['tasques'] = $listTasks->getTareas();
-        // print_r($tareas);
-
-        // include '../app/views/scripts/menu/llistarTasques.phtml';
         
+        // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
+        if (!isset($_SESSION['data'])) {
+            $_SESSION['data'] = $data;
+        }
     }
 
     public function addDataAction(){
