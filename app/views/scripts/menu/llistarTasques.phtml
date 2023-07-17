@@ -32,7 +32,17 @@
 
             }
 
-            $claseColumna = $columnaActual === 0 ? 'font-bold' : ''; // Aplicar clase de estilo solo a la primera columna
+            $claseColumna = '';
+
+            if ($columnaActual === 0) {
+
+                $claseColumna = 'font-bold'; // Estilo para la primera columna
+
+            } elseif ($columnaActual === 1) {
+
+                $claseColumna = 'uppercase'; // Estilo para la segunda columna
+
+            }
 
             echo '<td class="border border-slate-700 rounded-lg p-5 ' . $claseColumna . '">' . $valor . '</td>';
 
