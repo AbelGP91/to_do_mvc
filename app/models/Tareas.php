@@ -8,7 +8,7 @@ class Tareas extends Model {
 
         parent::__construct();
         $this->_setTable('tasques');
-        
+                
     }
 
     

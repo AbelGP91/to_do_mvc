@@ -7,6 +7,7 @@ class Model
 {
 	protected $_dbh = null;
 	protected $_table = "";
+	protected $_tarea = null;
 	
 	public function __construct()
 	{
@@ -42,6 +43,15 @@ class Model
 	{
 		$this->_table = $table;
 	}
+
+	/*
+	
+	public function _setTarea($tarea){
+
+		$this->_tarea = $tarea;
+	}
+
+	*/
 	
 	public function fetchOne($id)
 	{

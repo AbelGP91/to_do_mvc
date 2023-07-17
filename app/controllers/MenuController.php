@@ -60,33 +60,36 @@ class MenuController extends ApplicationController {
 
         $idTarea = $_POST['idTarea'];
         $idTarea = (int)$idTarea;
-
+        
+        // $tareaAction = new Tareas();
+        // $tareaAction->_setTarea($idTarea);
+        
         $_SESSION['idTarea'] = $idTarea;
 
-                if (isset($_POST['veure'])){
+        if (isset($_POST['veure'])){
 
-                $opcioTasques = $_POST['veure'];
+            $opcioTasques = $_POST['veure'];
 
-            }
+        }
 
-            if (isset($_POST['modificar']) && is_null($opcioTasques)){
+        if (isset($_POST['modificar']) && is_null($opcioTasques)){
 
-                $opcioTasques = $_POST['modificar'];
-        
+            $opcioTasques = $_POST['modificar'];
+    
 
-            }
+        }
 
-            if($opcioTasques === "Modificar"){
+        if($opcioTasques === "Modificar"){
 
-                header('location: /mvc/web/newData');
+            header('location: /mvc/web/newData');
 
-            }
+        }
 
-            else {
+        else {
 
-                header('location: /mvc/web/deleteData');
+            header('location: /mvc/web/deleteData');
 
-            }
+        }
 
     }
 
@@ -146,7 +149,7 @@ class MenuController extends ApplicationController {
         );
 
         $newData = new Tareas();
-
+        
         $newData->newData($arrayNewData);
 
     }
