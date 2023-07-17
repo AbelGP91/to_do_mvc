@@ -16,7 +16,6 @@ class MenuController extends ApplicationController{
 
         
     public function addTascaAction(){
-      // echo  '<pre>'; var_dump($_SESSION["usuarios"]); echo    '</pre>';
     
       $usuariosJsonFile = '../persistencia/usuarios.json';
 
@@ -64,9 +63,6 @@ class MenuController extends ApplicationController{
               // Guardar el JSON actualizado en el archivo
               file_put_contents($usuariosJsonFile, $usuariosJson);
 
-              // Agregar la nueva tarea al array de tareas en la sesión
-                //$_SESSION['usuarios'][0]['tasques'][] = $tarea;
-             
             }
         }
     } 
@@ -79,7 +75,6 @@ public function llistarTasquesAction(){
     $data['tasques'] = $listTasks->getTareas();
     
     // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
-    
     $_SESSION['data'] = $data;
     
 }

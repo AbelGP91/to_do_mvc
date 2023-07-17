@@ -44,33 +44,6 @@
             "inici_tasques": "2023-06-29 09:00:00",
             "fi_tasques": "2023-06-29 14:00:00",
             "Usuario_idUsuario": 2
-        },
-        {
-            "idTasques": "77",
-            "nom_tasques": "77",
-            "descrip_tasques": "77",
-            "estat_tasques": "77",
-            "inici_tasques": "0007-07-07",
-            "fi_tasques": "0007-07-07",
-            "Usuario_idUsuario": 2
-        },
-        {
-            "idTasques": "111",
-            "nom_tasques": "111",
-            "descrip_tasques": "111",
-            "estat_tasques": "111",
-            "inici_tasques": "1111-11-11",
-            "fi_tasques": "0011-11-11",
-            "Usuario_idUsuario": 2
-        },
-        {
-            "idTasques": "33",
-            "nom_tasques": "33",
-            "descrip_tasques": "33",
-            "estat_tasques": "3",
-            "inici_tasques": "2222-02-22",
-            "fi_tasques": "0222-02-22",
-            "Usuario_idUsuario": 2
         }
     ]
 }
