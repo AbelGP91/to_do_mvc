@@ -1,20 +1,22 @@
-<?php
-
-    class Tareas extends Model{
-        private $tareas;
-        
-        public function __construct() {
-            $json = file_get_contents('../persistencia/usuarios.json');
-            $data = json_decode($json, true);
-            $this->tareas = $data["tasques"];
-        }
-    
-        public function getTareas() {
-            return $this->tareas;
-        }
-
+<?php 
+class Tareas extends Model {
+    private $tareas;
+    private $json;
+    private $ruta;
+    public function __construct() {
+        $this->ruta = '../persistencia/usuarios.json';
+        $this->json = file_get_contents($this->ruta);
+        $data = json_decode($this->json, true);
+        $this->tareas = $data["tasques"];
     }
 
-    
+    public function getTareas() {
+        return $this->tareas;
+    }
 
+   
+
+
+    
+}
 ?>
