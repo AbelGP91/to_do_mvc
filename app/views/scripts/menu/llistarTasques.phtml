@@ -19,32 +19,33 @@
     <?php
     
     foreach ($_SESSION['arrayTasques'] as $fila) {
-        
+
         echo '<tr align="center">';
-            
+
+        $columnaActual = 0; // Variable de control para rastrear el índice de la columna actual
+
         foreach ($fila as $valor) {
 
-            if($valor==="0000-00-00"){
+            if ($valor === "0000-00-00") {
 
                 $valor = "-";
-    
+
             }
-        
-            echo '<td class="border border-slate-700 rounded-lg p-5 font-bold">' . $valor . '</td>';
-           
+
+            $claseColumna = $columnaActual === 0 ? 'font-bold' : ''; // Aplicar clase de estilo solo a la primera columna
+
+            echo '<td class="border border-slate-700 rounded-lg p-5 ' . $claseColumna . '">' . $valor . '</td>';
+
+            $columnaActual++; // Incrementar el índice de la columna actual
         }
 
-    echo '</tr>';
-
+        echo '</tr>';
     }
 
-    echo '</tbody>';
-    echo '</table>';   
+    echo '</table>';
 
     ?>
-
-    </table>
-    
+        
 <script>
 
     function confirmacion(){
