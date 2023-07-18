@@ -100,23 +100,16 @@ class MenuController extends ApplicationController{
         }
 
         public function borrarTascaAction(){
-            
-            
-            // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
-           
-            echo "Soy Jesucristo";
-            
-            
+               
+        }
+
+        public function deleteTascaAction(){ 
             $deleteTask = new Tareas();
             $jsonFile = $deleteTask->getRuta();
 
             $data = array();
             $data['tasques'] = $deleteTask->getTareas();
             $_SESSION['data'] = $data;
-
-            var_dump($data);
-
-            
            
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Obtener la ID de tarea seleccionada desde el formulario
@@ -140,7 +133,7 @@ class MenuController extends ApplicationController{
                         // Guardar los cambios en el archivo JSON
                         $updatedJsonContent = json_encode($data, JSON_PRETTY_PRINT);
                         file_put_contents($jsonFile, $updatedJsonContent);
-                        echo 'Tarea borrada exitosamente';
+                        // header('Location: detele');
                     } else {
                         echo 'Tarea no encontrada';
                     }
@@ -148,12 +141,6 @@ class MenuController extends ApplicationController{
                     echo 'ID de tarea no válida';
                 }
             }
-            
-            
-        }
-
-        public function deleteAction(){ 
-           
         }
 
         public function actualitzarTascaAction(){

@@ -8,22 +8,21 @@
 
 <?php include "../app/views/layouts/header.php"; ?>
 
-    <h2>Seleccione una tarea para borrar:</h2>
-    <form method="POST" action="borrarTasca">
-        <select name="idTarea">
-            <option value="">Seleccione una tarea</option>
-            <?php
-            
-            
-foreach ($_SESSION['data']['tasques'] as $tarea) {
-    echo '<option value="' . $tarea['idTasques'] . '">' . $tarea['idTasques'] . ' - ' . $tarea['nom_tasques'] . '</option>';
-  }   ?>
+
+<div class="flex justify-center items-center h-screen flex-col">
+  <h2 class="text-center mb-4">Seleccione una tarea para borrar:</h2>
+  <form method="POST" action="deleteTasca" class="w-3/4 md:w-1/2 lg:w-1/3 bg-gray-100 p-8 rounded shadow">
+    <select name="idTarea" class="w-full bg-white border border-gray-300 p-2 rounded mb-4">
+      <option value="">Seleccione una tarea</option>
+      <?php foreach ($_SESSION['data']['tasques'] as $tarea) {
+          echo '<option value="' . $tarea['idTasques'] . '">' . $tarea['idTasques'] . ' - ' . $tarea['nom_tasques'] . '</option>';
+      }?>
+    </select>
+    <input type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded" value="Borrar" onclick="return confirm('¿Estás seguro de que quieres borrar esta tarea?')">
+  </form>
+</div>
 
 
-        </select>
-        <br>
-        <input type="submit" value="Borrar" > <!-- onclick="return confirm('¿Estás seguro de que quieres borrar esta tarea?')"> --> 
-    </form>
 
 
     <?php include "../app/views/layouts/footer.php"; ?>
