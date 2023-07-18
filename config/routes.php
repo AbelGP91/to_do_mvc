@@ -19,6 +19,11 @@ $routes = array(
 	'/crearTasca' => 'menu#crearTasca',
 	'/addTasca' => 'menu#addTasca',
 	'/llistarTasques' => 'menu#llistarTasques',
+	'/modificarTasca' => 'menu#modificarTasca',
+	'/modificarOpcions'  => 'menu#modificarTasca',
+	'/actualitzarTasca'  => 'menu#actualitzarTasca',
+	'/borrarTasca'  => 'menu#borrarTasca',
+
 
 	
 );

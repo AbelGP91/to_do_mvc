@@ -8,8 +8,9 @@ class MenuController extends ApplicationController{
             header('Location: llistarTasques');
          }elseif(isset($_POST['crear'])){
             header('Location: crearTasca');
+        }elseif(isset($_POST['modificar'])){
+            header('Location: modificarTasca');
         }
-    
     }
 
     public function crearTascaAction(){}
@@ -68,16 +69,44 @@ class MenuController extends ApplicationController{
     } 
     
 
-public function llistarTasquesAction(){
-    $listTasks = new Tareas();
-    //var_dump($listTasks);
-    $data = array();
-    $data['tasques'] = $listTasks->getTareas();
-    
-    // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
-    $_SESSION['data'] = $data;
-    
-}
+        public function llistarTasquesAction(){
+            $listTasks = new Tareas();
+            //var_dump($listTasks);
+            $data = array();
+            $data['tasques'] = $listTasks->getTareas();
+            
+            // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
+            $_SESSION['data'] = $data;
+            
+        }
+
+        public function modificarTascaAction(){
+            $listTasks = new Tareas();
+            //var_dump($listTasks);
+            $data = array();
+            $data['tasques'] = $listTasks->getTareas();
+            
+            // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
+            $_SESSION['data'] = $data;
+        }
+
+        public function modificarOpcionsAction(){
+            if(isset($_POST['borrar'])){
+                header('Location: borrarTasca');
+             }elseif(isset($_POST['actualitzar'])){
+                header('Location: actualitzarTasca');
+            }
+        }
+
+        public function borrarTascaAction(){
+
+        }
+
+        public function actualitzarTascaAction(){
+            
+        }
+
+
 }    
 
 ?>
