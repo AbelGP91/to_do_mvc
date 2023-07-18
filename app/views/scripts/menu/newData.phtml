@@ -9,6 +9,21 @@
 
 <?php include "../app/views/layouts/header.php";?>
 
+<?php 
+
+// Al intentar acceder a los datos desde VALUE directamente ($_SESSION['arrayTasques']['nom_tasques']) indica que la clave no es existente
+// No encuentro el motivo del error. Por eso declaro aquí las variables para los distintos VALUES
+
+$datos = $_SESSION['arrayTasques'];
+
+$nombre= $datos[0]['nom_tasques'];
+$descrip = $datos[0]['descrip_tasques'];
+$dataIni = $datos[0]['inici_tasques'];
+$dataFi = $datos[0]['fi_tasques'];
+$estat = $datos[0]['estat_tasques'];
+
+?>
+
 <body>
 
 <div class="flex justify-center items-center h-screen bg-gray-100"> 
@@ -16,15 +31,15 @@
     <form name="MODIFICAR" method="post" action="modifyData" class="-mt-20 text-center rounded bg-gray-100 focus:outline-none focus:border-blue-500">
 
         <p class="font-bold mb-2">Actualitzar nom</p>
-        <input type="text" name="titulo" size="25" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <input type="text" name="titulo" size="25"  class=" text-center h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500" value= "<?php echo $nombre; ?>">
         <p class="font-bold mb-2">Actualitzar descripció</p>
-        <input type="text" name="descripcio" id="descripcio" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <input type="text" name="descripcio" id="descripcio" class="text-center h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500" value="<?php echo $descrip; ?>">
         <p class="font-bold mb-2">Actualitzar data inici</p>
-        <input type="date" name="dataInici" id="dataInici" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <input type="date" name="dataInici" id="dataInici" value="<?php echo $dataIni; ?>" class="text-center h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
         <p class="font-bold mb-2">Actualitzar data fi </p>
-        <input type="date" name="dataFi" id="dataFi" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <input type="date" name="dataFi" id="dataFi" value="<?php echo $dataFi; ?>" class="text-center h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
         <p class="font-bold mb-2">Actualitzar estat</p>
-        <input list = "estados" name = "estat" id = "estat" value="" class="h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
+        <input list = "estados" name = "estat" id = "estat" value="" class="text-center h-8 w-full px-3 py-2 rounded mb-7 border border-gray-300 focus:outline-none focus:border-blue-500">
         <datalist id="estados">
             <option> Pendent </option>
             <option> En execució </option>

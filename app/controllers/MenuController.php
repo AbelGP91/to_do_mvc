@@ -59,7 +59,13 @@ class MenuController extends ApplicationController {
         $idTarea = $_POST['idTarea'];
         $idTarea = (int)$idTarea;
 
-        $_SESSION['idTarea'] = $idTarea;
+        $getDatos = new Tareas();
+        $datos = $getDatos->getTarea($idTarea);
+    
+        $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
+       
+        $_SESSION['idTarea'] = $idTarea;        
+        $_SESSION['arrayTasques'] = $resultado;
 
         if (isset($_POST['modificar'])){
 

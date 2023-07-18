@@ -110,5 +110,20 @@ class Tareas extends Model {
 
     }
 
+    public function getTarea($idTasca){
+        
+        $mysql = $this->conexion;
+
+        $sql = "SELECT nom_tasques,descrip_tasques,estat_tasques,inici_tasques,fi_tasques FROM to_do.tasques
+        WHERE idTasques = '$idTasca'";
+        
+        $data = $mysql->query($sql);
+        
+        $mysql->close();
+
+        return $data;
+
+    }
+
 }
 
