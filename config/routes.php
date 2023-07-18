@@ -20,7 +20,7 @@ $routes = array(
 	'/addTasca' => 'menu#addTasca',
 	'/llistarTasques' => 'menu#llistarTasques',
 	'/modificarTasca' => 'menu#modificarTasca',
-	'/modificarOpcions'  => 'menu#modificarTasca',
+	'/modificarOpcions'  => 'menu#modificarOpcions',
 	'/actualitzarTasca'  => 'menu#actualitzarTasca',
 	'/borrarTasca'  => 'menu#borrarTasca',
 

@@ -53,6 +53,15 @@
             "inici_tasques": "2023-07-18",
             "fi_tasques": "",
             "Usuario_idUsuario": 2
+        },
+        {
+            "idTasques": "44",
+            "nom_tasques": "44",
+            "descrip_tasques": "44",
+            "estat_tasques": "4444",
+            "inici_tasques": "2023-07-18",
+            "fi_tasques": "",
+            "Usuario_idUsuario": 2
         }
     ]
 }
