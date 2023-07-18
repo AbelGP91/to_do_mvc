@@ -5,7 +5,7 @@
          class="text-white text-lg font-bold hover:text-blue-200 px-4">IT Academy</a>
       </div>
       <div>
-        <a href="../vista/menu.php" class="text-white hover:text-blue-200 px-4">Tornar al menu</a>
+        <a href="menu" class="text-white hover:text-blue-200 px-4">Tornar al menu</a>
         <a href="#" class="text-white hover:text-blue-200 px-4">Nosaltres</a>
         <a href="#" class="text-white hover:text-blue-200 px-4">Serveis</a>
         <a href="#" class="text-white hover:text-blue-200 px-4">Contacte</a>
@@ -20,7 +20,7 @@
 }
 
 echo '<div class="flex justify-center items-center">';
-echo '<span class="text-white">User ID: ' . $idUsuario . '</span>';
+echo '<span class="text-white">Usuari a la sessió  actual: ID ' . $idUsuario . '</span>';
 echo '</div>';
 
 ?>

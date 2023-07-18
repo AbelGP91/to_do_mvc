@@ -19,7 +19,7 @@
     ],
     "tasques": [
         {
-            "idTasques": 1,
+            "idTasques": "1",
             "nom_tasques": "Tarea1",
             "descrip_tasques": "Descripci\u00f3n de la tarea 1",
             "estat_tasques": "En proceso",
@@ -28,7 +28,7 @@
             "Usuario_idUsuario": 1
         },
         {
-            "idTasques": 2,
+            "idTasques": "2",
             "nom_tasques": "Tarea2",
             "descrip_tasques": "Descripci\u00f3n de la tarea 2",
             "estat_tasques": "Completada",
