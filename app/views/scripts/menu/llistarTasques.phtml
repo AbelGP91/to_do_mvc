@@ -86,7 +86,7 @@
         
         foreach ($_SESSION['arrayTasques'] as $fila) {
             
-            echo '<option value="' . $fila['idTasques'] . '">' . $fila['idTasques'] . '</option>';
+            echo '<option value="' . $fila['idTasques'] . '">' . $fila['idTasques'] . ' - ' . $fila['nom_tasques'] . '</option>';
 
         }
         
