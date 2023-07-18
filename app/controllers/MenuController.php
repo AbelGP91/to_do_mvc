@@ -17,8 +17,9 @@ class MenuController extends ApplicationController{
 
         
     public function addTascaAction(){
-    
-      $usuariosJsonFile = '../persistencia/usuarios.json';
+        
+        $createTask = new Tareas();
+      $usuariosJsonFile = $createTask->getRuta();
 
       // Verificar si el usuario ha iniciado sesión
       if (isset($_SESSION['usuarios'])) {
@@ -99,7 +100,60 @@ class MenuController extends ApplicationController{
         }
 
         public function borrarTascaAction(){
+            
+            
+            // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
+           
+            echo "Soy Jesucristo";
+            
+            
+            $deleteTask = new Tareas();
+            $jsonFile = $deleteTask->getRuta();
 
+            $data = array();
+            $data['tasques'] = $deleteTask->getTareas();
+            $_SESSION['data'] = $data;
+
+            var_dump($data);
+
+            
+           
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Obtener la ID de tarea seleccionada desde el formulario
+                $idTareaSeleccionada = $_POST['idTarea'];
+            
+                if (!empty($idTareaSeleccionada)) {
+                    // Cargar el archivo JSON y eliminar la tarea correspondiente a la ID seleccionada
+                    
+                    $jsonContent = file_get_contents($jsonFile);
+                    $data = json_decode($jsonContent, true);
+            
+                    $tareaEncontrada = false;
+                    foreach ($data['tasques'] as $key => $tarea) {
+                        if ($tarea['idTasques'] == $idTareaSeleccionada) {
+                            unset($data['tasques'][$key]);
+                            $tareaEncontrada = true;
+                        }
+                    }
+            
+                    if ($tareaEncontrada) {
+                        // Guardar los cambios en el archivo JSON
+                        $updatedJsonContent = json_encode($data, JSON_PRETTY_PRINT);
+                        file_put_contents($jsonFile, $updatedJsonContent);
+                        echo 'Tarea borrada exitosamente';
+                    } else {
+                        echo 'Tarea no encontrada';
+                    }
+                } else {
+                    echo 'ID de tarea no válida';
+                }
+            }
+            
+            
+        }
+
+        public function deleteAction(){ 
+           
         }
 
         public function actualitzarTascaAction(){

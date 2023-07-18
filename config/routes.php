@@ -23,7 +23,7 @@ $routes = array(
 	'/modificarOpcions'  => 'menu#modificarOpcions',
 	'/actualitzarTasca'  => 'menu#actualitzarTasca',
 	'/borrarTasca'  => 'menu#borrarTasca',
-
+	'/delete'  => 'menu#delete',
 
 	
 );
