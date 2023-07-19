@@ -14,6 +14,7 @@ $routes = array(
 	'/test' => 'test#index',
 	'/' => 'index#index',
 	'/login' => 'index#login',
+	'/errorLogin' => 'index#errorLogin',
 	'/menu' => 'index#menu',
 	'/options' => 'menu#options',
 	'/crearTasca' => 'menu#crearTasca',
