@@ -10,5 +10,29 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
-	'/test' => 'test#index'
+	'/test' => 'test#index',
+	'/' => 'index#index',
+	'/login' =>'index#login',
+	'/menu' => 'index#menu',
+	'/options' => 'menu#options',
+	'/crearTasca' => 'menu#crearTasca',
+	'/llistarTasques' => 'menu#llistarTasques',
+	
 );
+
+/* 
+
+test#index
+
+controllers/testController.php
+indexAction()
+
+controllers/indexController.php
+indexAction()
+
+controllers/indexController.php
+loginAction()
+
+*/
+
+
