@@ -53,6 +53,15 @@
             "inici_tasques": "2023-07-19",
             "fi_tasques": "2023-07-31",
             "Usuario_idUsuario": 2
+        },
+        "5": {
+            "idTasques": "5",
+            "nom_tasques": "dominar el mundo",
+            "descrip_tasques": "no lo s\u00e9 a\u00fan c\u00f3mo",
+            "estat_tasques": "Ma\u00f1ana m\u00e1s que hoy",
+            "inici_tasques": "1111-11-11",
+            "fi_tasques": "",
+            "Usuario_idUsuario": 2
         }
     }
 }
