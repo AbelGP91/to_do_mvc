@@ -17,8 +17,8 @@
             "password_usuari": "contra2"
         }
     ],
-    "tasques": [
-        {
+    "tasques": {
+        "0": {
             "idTasques": "1",
             "nom_tasques": "Tarea1",
             "descrip_tasques": "Descripci\u00f3n de la tarea 1",
@@ -27,7 +27,7 @@
             "fi_tasques": "2023-06-27 14:00:00",
             "Usuario_idUsuario": 1
         },
-        {
+        "1": {
             "idTasques": "2",
             "nom_tasques": "Tarea2",
             "descrip_tasques": "Descripci\u00f3n de la tarea 2",
@@ -36,7 +36,7 @@
             "fi_tasques": "2023-06-28 12:00:00",
             "Usuario_idUsuario": 1
         },
-        {
+        "2": {
             "idTasques": 3,
             "nom_tasques": "Tarea3",
             "descrip_tasques": "Descripci\u00f3n de la tarea 3",
@@ -45,14 +45,14 @@
             "fi_tasques": "2023-06-29 14:00:00",
             "Usuario_idUsuario": 2
         },
-        {
-            "idTasques": "44",
-            "nom_tasques": "44",
-            "descrip_tasques": "44",
-            "estat_tasques": "44",
-            "inici_tasques": "2023-07-18",
-            "fi_tasques": "",
+        "4": {
+            "idTasques": "4",
+            "nom_tasques": "Estudiar PHP",
+            "descrip_tasques": "Repasar patrones",
+            "estat_tasques": "Finalizada",
+            "inici_tasques": "2023-07-19",
+            "fi_tasques": "2023-07-31",
             "Usuario_idUsuario": 2
         }
-    ]
+    }
 }

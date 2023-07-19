@@ -148,79 +148,66 @@ class MenuController extends ApplicationController{
         }
 
         public function updateTascaAction(){
-            $message = '';
-            $idTarea = $_POST['idTasques'] ?? '';
-            $tareaFound = false;
-
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Obtener los datos enviados por el formulario
-                $titulo = $_POST['titulo'] ?? '';
-                $descripcio = $_POST['descripcio'] ?? '';
-                $dataInici = $_POST['dataInici'] ?? '';
-                $dataFi = $_POST['dataFi'] ?? '';
-                $estat = $_POST['estat'] ?? '';
-
-                // Verificar si se han enviado todos los datos requeridos
-                $datosCompletos = !empty($idTarea) && !empty($titulo) && !empty($descripcio) && !empty($dataInici);
-
-                if ($datosCompletos) {
-                    // Cargar el contenido actual del archivo JSON
-                    $data = json_decode(file_get_contents('../persistencia/usuarios.json'), true);
+            $idTarea = $_POST['idTarea'];
+            $_SESSION['idTarea'] = $idTarea; // Almacenar el valor en la sesión
+            }
 
 
-                    // Buscar la tarea correspondiente al ID
-                    $updated = false;
-                    $tareaFound = false;
-                    foreach ($data['tasques'] as $tarea) {
-                        if ($tarea['idTasques'] == $idTarea) {
-                            $tarea['nom_tasques'] = $titulo;
-                            $tarea['descrip_tasques'] = $descripcio;
-                            $tarea['inici_tasques'] = $dataInici;
-                            $tarea['fi_tasques'] = $dataFi;
-                            $tarea['estat_tasques'] = $estat;
-                            $updated = true;
-                            $tareaFound = true;
+        public function modifiedTascaAction(){
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['idTarea'])) {
+                    $idTarea = $_SESSION['idTarea']; // Obtener el valor de la sesión
+            
+                    // Obtener los datos enviados por el formulario
+                    $titulo = $_POST['titulo'] ?? '';
+                    $descripcio = $_POST['descripcio'] ?? '';
+                    $dataInici = $_POST['dataInici'] ?? '';
+                    $dataFi = $_POST['dataFi'] ?? '';
+                    $estat = $_POST['estat'] ?? '';
+            
+                    // Verificar si se han enviado todos los datos requeridos
+                    $datosCompletos = !empty($idTarea);
+            
+                    if ($datosCompletos) {
+                        // Cargar el contenido actual del archivo JSON
+                        $data = json_decode(file_get_contents('../persistencia/usuarios.json'), true);
+            
+                        // Buscar la tarea correspondiente al ID
+                        $updated = false;
+                        foreach ($data['tasques'] as &$tarea) {  // Agrega el '&' antes de $tarea para hacerlo una referencia
+                            if ($tarea['idTasques'] == $idTarea) {
+                                if (!empty($titulo)) {
+                                    $tarea['nom_tasques'] = $titulo;
+                                }
+                                if (!empty($descripcio)) {
+                                    $tarea['descrip_tasques'] = $descripcio;
+                                }
+                                if (!empty($dataInici)) {
+                                    $tarea['inici_tasques'] = $dataInici;
+                                }
+                                if (!empty($dataFi)) {
+                                    $tarea['fi_tasques'] = $dataFi;
+                                }
+                                if (!empty($estat)) {
+                                    $tarea['estat_tasques'] = $estat;
+                                }
+                                $updated = true;
+                                break;  // Agrega 'break' para salir del bucle después de encontrar la tarea
+                            }
+                        }
+            
+                        if ($updated) {
+                            // Guardar los cambios en el archivo JSON
+                            file_put_contents('../persistencia/usuarios.json', json_encode($data, JSON_PRETTY_PRINT));
                         }
                     }
-
-                    if ($updated) {
-                        // Guardar los cambios en el archivo JSON
-                        file_put_contents('../persistencia/usuarios.json', json_encode($data, JSON_PRETTY_PRINT));
-
-                        $message = "Tarea actualizada exitosamente";
-                    } else {
-                        $message = "No se encontró la tarea con el ID proporcionado";
-                    
-                    }
-                } else {
-                    $message = "Por favor, completa todos los campos requeridos";
                 }
+            
+                
             }
+            
 
-            // Obtener los datos de la tarea actual según el ID
-            $datosTarea = null;
-            if (!empty($idTarea)) {
-                // Cargar el contenido actual del archivo JSON
-                $data = json_decode(file_get_contents('../persistencia/usuarios.json'), true);
-
-
-                foreach ($data['tasques'] as $tarea) {
-                    if ($tarea['idTasques'] == $idTarea) {
-                        $datosTarea = $tarea;
-                        break;
-                    }
-                }
-            }
-                    }
-
-        
-                    public function modifiedTascaAction(){
-
-                    }
-
-
-
-                } 
+        }
+    
 
             
 
