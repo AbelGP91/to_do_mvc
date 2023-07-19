@@ -1,34 +1,40 @@
 <?php
-class MenuController extends ApplicationController{
-    public function optionsAction(){
-        if(isset($_POST['llistar'])){
+class MenuController extends ApplicationController
+{
+    public function optionsAction()
+    {
+        if (isset($_POST['llistar'])) {
             header('Location: llistarTasques');
-        }elseif(isset($_POST['crear'])){
+            exit;
+        } elseif (isset($_POST['crear'])) {
             header('Location: crearTasca');
-        }elseif(isset($_POST['modificar'])){
+            exit;
+        } elseif (isset($_POST['modificar'])) {
             header('Location: modificarTasca');
+            exit;
         }
     }
 
-    public function crearTascaAction(){}
+    public function crearTascaAction()
+    {
+        // Acción para mostrar el formulario de creación de tareas
+    }
 
-    public function addTascaAction(){
-        $createTask = new Tareas();
-        $usuariosJsonFile = $createTask->getRuta();
+    public function addTascaAction()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $createTask = new Tareas();
+           //echo $usuariosJsonFile = $createTask->getRuta();
 
-        // Verificar si el usuario ha iniciado sesión
-        if (isset($_SESSION['usuarios'])) {
-            // Obtener el usuario actual de la sesión
-            $usuario = $_SESSION['usuarios'][0];
-            $idUsuario = $usuario['idUsuario'];
-
-            // Verificar si se envió el campo "titulo" en el formulario
-            if (isset($_POST['titulo'])) {
-                // Obtener el valor del campo "titulo"
-                $titulo = $_POST['titulo'];
+            // Verificar si el usuario ha iniciado sesión
+            if (isset($_SESSION['usuarios'])) {
+                // Obtener el usuario actual de la sesión
+                $usuario = $_SESSION['usuarios'][0];
+                $idUsuario = $usuario['idUsuario'];
 
                 // Obtener los datos enviados por el formulario
                 $idTasques = $_POST['idTasques'];
+                $titulo = $_POST['titulo'];
                 $descripcio = $_POST['descripcio'];
                 $dataInici = $_POST['dataInici'];
                 $dataFi = $_POST['dataFi'];
@@ -45,99 +51,81 @@ class MenuController extends ApplicationController{
                     'Usuario_idUsuario' => $idUsuario
                 ];
 
-                // Obtener el contenido actual del archivo JSON
-                $usuariosJson = file_get_contents($usuariosJsonFile);
+                // Llamar al método del modelo para crear la tarea
+                $createTask->createTarea($tarea);
 
-                // Convertir el contenido JSON a un array asociativo
-                $data = json_decode($usuariosJson, true);
-
-                // Agregar la nueva tarea al array de tareas del usuario actual
-                $data['tasques'][] = $tarea;
-
-                // Convertir el array a JSON
-                $usuariosJson = json_encode($data, JSON_PRETTY_PRINT);
-
-                // Guardar el JSON actualizado en el archivo
-                file_put_contents($usuariosJsonFile, $usuariosJson);
+                // Redireccionar a la página de listado de tareas
+                header('Location: addTasca');
+                exit;
             }
         }
-    } 
+    }
 
-    public function llistarTasquesAction(){
+    public function llistarTasquesAction()
+    {
         $listTasks = new Tareas();
         $data = array();
         $data['tasques'] = $listTasks->getTareas();
 
-        // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
+        // Guardar los datos en una $_sesión en la línea 11 de llistarTasques.phtml
         $_SESSION['data'] = $data;
     }
 
-    public function modificarTascaAction(){
+    public function modificarTascaAction()
+    {
         $modificarTasks = new Tareas();
         $data = array();
         $data['tasques'] = $modificarTasks->getTareas();
 
-        // Guardar los datos en una $_sesión en la linea 11 de llistarTasques.phtml
+        // Guardar los datos en una $_sesión en la línea 11 de llistarTasques.phtml
         $_SESSION['data'] = $data;
     }
 
-    public function modificarOpcionsAction(){
-        if(isset($_POST['borrar'])){
+    public function modificarOpcionsAction()
+    {
+        if (isset($_POST['borrar'])) {
             header('Location: borrarTasca');
-        }elseif(isset($_POST['actualitzar'])){
+            exit;
+        } elseif (isset($_POST['actualitzar'])) {
             header('Location: actualitzarTasca');
+            exit;
         }
     }
 
-    public function borrarTascaAction(){}
-        
-    public function deleteTascaAction(){ 
-        $deleteTask = new Tareas();
-        $jsonFile = $deleteTask->getRuta();
+    public function borrarTascaAction()
+    {
+        // Acción para mostrar el formulario de eliminación de tarea
+    }
 
-        $data = array();
-        $data['tasques'] = $deleteTask->getTareas();
-        $_SESSION['data'] = $data;
-
+    public function deleteTascaAction()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Obtener la ID de tarea seleccionada desde el formulario
+            $deleteTask = new Tareas();
             $idTareaSeleccionada = $_POST['idTarea'];
 
             if (!empty($idTareaSeleccionada)) {
-                // Cargar el archivo JSON y eliminar la tarea correspondiente a la ID seleccionada
-                $jsonContent = file_get_contents($jsonFile);
-                $data = json_decode($jsonContent, true);
-
-                $tareaEncontrada = false;
-                foreach ($data['tasques'] as $key => $tarea) {
-                    if ($tarea['idTasques'] == $idTareaSeleccionada) {
-                        unset($data['tasques'][$key]);
-                        $tareaEncontrada = true;
-                    }
-                }
-
-                if ($tareaEncontrada) {
-                    // Guardar los cambios en el archivo JSON
-                    $updatedJsonContent = json_encode($data, JSON_PRETTY_PRINT);
-                    file_put_contents($jsonFile, $updatedJsonContent);
-                }
+                // Llamar al método del modelo para eliminar la tarea
+                $deleteTask->deleteTarea($idTareaSeleccionada);
             }
         }
     }
 
-    public function actualitzarTascaAction(){}
+    public function actualitzarTascaAction()
+    {
+        // Acción para mostrar el formulario de actualización de tarea
+    }
 
-    public function updateTascaAction(){
+    public function updateTascaAction()
+    {
         $idTarea = $_POST['idTarea'];
         $_SESSION['idTarea'] = $idTarea; // Almacenar el valor en la sesión
     }
 
-    public function modifiedTascaAction(){
-        $modifyTask = new Tareas();
-        $jsonFile = $modifyTask->getRuta();
-
+    public function modifiedTascaAction()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['idTarea'])) {
-            $idTarea = $_SESSION['idTarea']; // Obtener el valor de la sesión
+            $modifyTask = new Tareas();
+            $idTarea = $_SESSION['idTarea'];
 
             // Obtener los datos enviados por el formulario
             $titulo = $_POST['titulo'] ?? '';
@@ -146,43 +134,12 @@ class MenuController extends ApplicationController{
             $dataFi = $_POST['dataFi'] ?? '';
             $estat = $_POST['estat'] ?? '';
 
-            // Verificar si se han enviado todos los datos requeridos
-            $datosCompletos = !empty($idTarea);
+            // Llamar al método del modelo para actualizar la tarea
+            $modifyTask->updateTarea($idTarea, $titulo, $descripcio, $dataInici, $dataFi, $estat);
 
-            if ($datosCompletos) {
-                // Cargar el contenido actual del archivo JSON
-                $data = json_decode(file_get_contents($jsonFile), true);
-
-                // Buscar la tarea correspondiente al ID
-                $updated = false;
-                foreach ($data['tasques'] as &$tarea) {  // Agrega el '&' antes de $tarea para hacerlo una referencia
-                    if ($tarea['idTasques'] == $idTarea) {
-                        if (!empty($titulo)) {
-                            $tarea['nom_tasques'] = $titulo;
-                        }
-                        if (!empty($descripcio)) {
-                            $tarea['descrip_tasques'] = $descripcio;
-                        }
-                        if (!empty($dataInici)) {
-                            $tarea['inici_tasques'] = $dataInici;
-                        }
-                        if (!empty($dataFi)) {
-                            $tarea['fi_tasques'] = $dataFi;
-                        }
-                        if (!empty($estat)) {
-                            $tarea['estat_tasques'] = $estat;
-                        }
-                        $updated = true;
-                        break;  // Agrega 'break' para salir del bucle después de encontrar la tarea
-                    }
-                }
-
-                if ($updated) {
-                    // Guardar los cambios en el archivo JSON
-                    file_put_contents($jsonFile, json_encode($data, JSON_PRETTY_PRINT));
-                }
-            }
+            // Redireccionar a la página de listado de tareas
+            header('Location: modifiedTasca');
+            exit;
         }
-    }    
+    }
 }
-?>

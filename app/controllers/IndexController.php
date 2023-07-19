@@ -2,15 +2,11 @@
 
 class IndexController extends ApplicationController
 {
-    public function indexAction()
-    {
-        //
-    }
+    public function indexAction(){}
 
     public function loginAction(){
         
         $users = new Usuarios();
-
         $usuariosEncontrados = $users->findByEmailPassword($_POST['email'], $_POST['password']);
         
         if (!empty($usuariosEncontrados)) {
@@ -29,12 +25,7 @@ class IndexController extends ApplicationController
 
     public function errorLoginAction(){}
 
-    public function menuAction(){
-        //
-    }
-
+    public function menuAction(){}
 
 }
- 
-
 ?>
