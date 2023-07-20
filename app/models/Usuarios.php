@@ -3,8 +3,7 @@
 class Usuarios extends Model
 {
    
-
-    private $usuarios;
+    protected $usuarios;
 
     public function __construct()
     {
