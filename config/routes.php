@@ -9,6 +9,14 @@
  * '/' => 'index#index',
  * '/calendar' => 'calendar#index'
  */
+
 $routes = array(
-	'/test' => 'test#index'
+	'/test' => 'test#index',
+	'/' => 'index#index',
+	'/login' => 'index#login',
+	'/menu' => 'index#menu',
+	'/options' => 'menu#options',
+	'/crearTasca' => 'menu#crearTasca',
+	'/llistarTasques' => 'menu#llistarTasques',
+	
 );
