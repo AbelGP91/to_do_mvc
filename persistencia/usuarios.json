@@ -19,7 +19,7 @@
     ],
     "tasques": [
         {
-            "idTasques": 1,
+            "idTasques": "1",
             "nom_tasques": "Tarea1",
             "descrip_tasques": "Descripci\u00f3n de la tarea 1",
             "estat_tasques": "En proceso",
@@ -28,7 +28,7 @@
             "Usuario_idUsuario": 1
         },
         {
-            "idTasques": 2,
+            "idTasques": "2",
             "nom_tasques": "Tarea2",
             "descrip_tasques": "Descripci\u00f3n de la tarea 2",
             "estat_tasques": "Completada",
@@ -44,6 +44,33 @@
             "inici_tasques": "2023-06-29 09:00:00",
             "fi_tasques": "2023-06-29 14:00:00",
             "Usuario_idUsuario": 2
+        },
+        {
+            "idTasques": "4",
+            "nom_tasques": "Estudiar PHP",
+            "descrip_tasques": "Repasar patrones",
+            "estat_tasques": "Finalizada",
+            "inici_tasques": "2023-07-19",
+            "fi_tasques": "2023-07-31",
+            "Usuario_idUsuario": 2
+        },
+        {
+            "idTasques": "5",
+            "nom_tasques": "dominar el mundo",
+            "descrip_tasques": "no lo s\u00e9 a\u00fan c\u00f3mo",
+            "estat_tasques": "666",
+            "inici_tasques": "1111-11-11",
+            "fi_tasques": "",
+            "Usuario_idUsuario": 3
+        },
+        {
+            "idTasques": "6",
+            "nom_tasques": "Vacaciones",
+            "descrip_tasques": "Descansar",
+            "estat_tasques": "Pendiente",
+            "inici_tasques": "2023-07-22",
+            "fi_tasques": "2023-07-23",
+            "Usuario_idUsuario": 3
         }
     ]
 }

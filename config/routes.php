@@ -14,9 +14,21 @@ $routes = array(
 	'/test' => 'test#index',
 	'/' => 'index#index',
 	'/login' => 'index#login',
+	'/errorLogin' => 'index#errorLogin',
 	'/menu' => 'index#menu',
 	'/options' => 'menu#options',
 	'/crearTasca' => 'menu#crearTasca',
+	'/addTasca' => 'menu#addTasca',
 	'/llistarTasques' => 'menu#llistarTasques',
+	'/modificarTasca' => 'menu#modificarTasca',
+	'/modificarOpcions'  => 'menu#modificarOpcions',
+	'/actualitzarTasca'  => 'menu#actualitzarTasca',
+	'/borrarTasca'  => 'menu#borrarTasca',
+	'/deleteTasca'  => 'menu#deleteTasca',
+	'/updateTasca'  => 'menu#updateTasca',
+	'/modifiedTasca'  => 'menu#modifiedTasca',
+
+
+
 	
 );

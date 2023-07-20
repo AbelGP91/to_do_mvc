@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actualizar Tarea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<?php include "../app/views/layouts/header.php"; ?>
+
+    
+    <div class="flex justify-center items-center h-screen flex-column">
+        <form method="POST" action="modifiedTasca" class="max-w-sm">
+
+        <h2>Actualitzar la tasca <strong>ID  <?php echo $_SESSION['idTarea'];?></strong> amb noves dades: </h2>
+        <br>
+
+            <p class="font-bold mb-2">Introduce el título de la tarea</p>
+            <input type="text" name="titulo" placeholder="Introduce el título de la tarea" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500">
+            
+            <p class="font-bold mb-2">Introduce la descripción de la tarea</p>
+            <input type="text" name="descripcio" id="descripcio" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500">
+            
+            <p class="font-bold mb-2">Introduce la fecha de inicio</p>
+            <input type="date" name="dataInici" id="dataInici" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500">
+            
+            <p class="font-bold mb-2">Introduce la fecha de fin</p>
+            <input type="date" name="dataFi" id="dataFi" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500">
+            
+            <p class="font-bold mb-2">Estat</p>
+            <input type="text" name="estat" class="w-full px-3 py-2 rounded mb-4 border border-gray-300 focus:outline-none focus:border-blue-500">
+            
+            <br><br>
+            <input type="submit" value="Actualitzar" class="w-full bg-blue-700 text-white font-bold py-2 px-4 rounded hover:scale-95 transform transition-all duration-200">
+        </form>
+</div>
+
+    <?php include "../app/views/layouts/footer.php"; ?>
+</body>
+</html>

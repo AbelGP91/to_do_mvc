@@ -2,37 +2,30 @@
 
 class IndexController extends ApplicationController
 {
-    public function indexAction()
-    {
-        //
-    }
+    public function indexAction(){}
 
     public function loginAction(){
         
         $users = new Usuarios();
-
         $usuariosEncontrados = $users->findByEmailPassword($_POST['email'], $_POST['password']);
         
         if (!empty($usuariosEncontrados)) {
             // Guardar información de los usuarios en la sesión
             $_SESSION["usuarios"] = $usuariosEncontrados;
-            echo "se encontraron usuarios";
             // Redireccionar al usuario a la página de menú
             header('Location: menu');
             
         } else {
-            // Mostrar mensaje de error si no se encontraron usuarios
-            echo "No se encontraron usuarios";
+            // no se encontraron usuarios
+            echo '<script>alert("Los datos introducidos son erróneos");</script>';
+            header('Location: errorLogin');
         }
 
-        }
-
-    public function menuAction(){
-        //
     }
 
+    public function errorLoginAction(){}
+
+    public function menuAction(){}
 
 }
- 
-
 ?>
