@@ -28,7 +28,7 @@ class IndexController extends ApplicationController
 
         if($user)
         {   
-            echo "Logueado";
+            // echo "Logueado";
 
             $_SESSION['usuario'] = $array['id'];
             header('Location: /mvc/web/menu');

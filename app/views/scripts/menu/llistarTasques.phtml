@@ -11,49 +11,65 @@
 
 <body>
 
-<div class="flex h-screen justify-center items-center -mt-20">
+<div class="flex flex-col h-screen justify-center items-center">
+                    
+    <table class="flex h-screen justify-center items-center -mt-20 -mb-20">
+    <tr><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">ID</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Nom</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Descripció</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Estat</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Data Inici</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Data fi</th></tr>
     
     <?php
-            
-    echo '<table class="flex h-screen justify-center items-center -mt-20"';
-    echo '<tr><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">ID</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Nom</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Descripció</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Estat</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Data Inici</th><th class="border border-slate-700 p-3 bg-blue-500 text-white font-bold">Data fi</th></tr>';
+    
+    foreach ($_SESSION['arrayTasques'] as $fila) {
         
-    while ($resultado = mysqli_fetch_array($_SESSION['tasques'])){
+        echo '<tr align="center">';
+            
+        foreach ($fila as $valor) {
 
-    echo '<tr align="center">';
-    echo '<td class="border border-slate-700 rounded-lg p-5 font-bold">';
-    echo $resultado['idTasques'];
-    echo '</td>';
-    echo '<td class="border border-slate-700 rounded-lg p-5">';
-    echo $resultado['nom_tasques'];
-    echo '</td>';
-    echo '<td class="border border-slate-700 rounded-lg p-5">';
-    echo $resultado['descrip_tasques'];
-    echo '</td>';
-    echo '<td class="border border-slate-700 rounded-lg p-5">';
-    echo $resultado['estat_tasques'];
-    echo '</td>';
-    echo '<td class="border border-slate-700 rounded-lg p-5">';
-    echo $resultado['inici_tasques'];
-    echo '</td>';
-    echo '<td class="border border-slate-700 rounded-lg p-5">';
-                
-        if($resultado['fi_tasques']==="0000-00-00 00:00:00"){
+            if($valor==="0000-00-00"){
 
-            $resultado['fi_tasques'] = "-";
-
+                $valor = "-";
+    
+            }
+        
+            echo '<td class="border border-slate-700 rounded-lg p-5 font-bold">' . $valor . '</td>';
+           
         }
 
-        echo $resultado['fi_tasques'];
-
-    echo '</td>';
     echo '</tr>';
 
-    }    
+    }
 
-    echo '</table>'; 
+    echo '</tbody>';
+    echo '</table>';   
 
     ?>
+
+    </table>    
+        
+<form class="flex flex-col items-center mb-20 -mt-20" action="mod_del" name="Tareas" method="post">
+
+    <select name="idTarea" style="margin-left:30px" required>
+    
+        <option value="" class="mb-20">  Selecciona una tasca  </option>
+                
+        <?php
+        
+        foreach ($_SESSION['arrayTasques'] as $fila) {
+            
+            echo '<option value="' . $fila['idTasques'] . '">' . $fila['idTasques'] . '</option>';
+
+        }
+        
+        ?>
+
+    </select><br>
+
+        <div class="flex flex-row">    
+        <input type="submit" class="ml-5 py-2 px-5 bg-blue-500 text-white font-bold rounded mb-20 mt-5" name="modificar" value ="Modificar"/>
+        <input type="submit" class="ml-5 py-2 px-5 bg-blue-500 text-white font-bold rounded mb-20 mt-5" name="borrar" value ="Borrar" onclick="return confirmacion()"/>
+        </div>
+        
+</form>
+
 </div>
 
 <?php include "../app/views/layouts/footer.php";?>
