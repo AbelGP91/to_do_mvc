@@ -35,19 +35,8 @@ class MenuController extends ApplicationController {
         $_SESSION['arrayTasques'] = $resultado;
             
             
-        }
-
-        
-        /*
-        
-        $_SESSION['arrayTasques'] = $arrayTasques;
-
-        $_SESSION['tasques'] = $tasquesId;
-
-        */
-                      
+        }                      
     
-
     public function addDataAction(){
 
         $tasques = new Tareas();
@@ -62,6 +51,104 @@ class MenuController extends ApplicationController {
 
         $tasques->addData($arrayData);
 
+
+    }
+
+    public function dataAction(){
+
+        $idTarea = $_POST['idTarea'];
+        $idTarea = (int)$idTarea;
+
+        $getDatos = new Tareas();
+        $datos = $getDatos->getTarea($idTarea);
+    
+        $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
+       
+        $_SESSION['idTarea'] = $idTarea;        
+        $_SESSION['arrayTasques'] = $resultado;
+
+        if (isset($_POST['modificar'])){
+
+            header('location: /mvc/web/newData');
+
+        }
+
+        else {
+
+            header('location: /mvc/web/deleteData');
+
+        }
+
+    }
+
+    public function newDataAction(){
+        
+        
+    }
+
+    public function modifyDataAction(){
+
+        $titulo = null;
+        $descripcio = null;
+        $estat = null;
+        $dataInici = null;
+        $dataFi = null;
+        $idTarea = $_SESSION['idTarea'];
+
+        if(isset($_POST['titulo']) && ($_POST['titulo']!="")) {
+    
+            $titulo=$_POST['titulo'];
+        
+        }
+        
+        if(isset($_POST['descripcio']) && ($_POST['descripcio']!="")) {
+            
+            $descripcio=$_POST['descripcio'];
+        
+        }
+                
+        if(isset($_POST['estat']) && ($_POST['estat']!="")) {
+            
+            $estat=$_POST['estat'];
+        
+        }
+        
+        if(isset($_POST['dataInici']) && ($_POST['dataInici']!="")) {
+            
+            $dataInici=$_POST['dataInici'];
+        
+        }
+        
+        if(isset($_POST['dataFi']) && ($_POST['dataFi']!="")) {
+            
+            $dataFi=$_POST['dataFi'];        
+                    
+        }
+
+        $arrayNewData = array(
+
+            "idTasques" => $idTarea,
+            "titulo" => $titulo, 
+            'descripcio' => $descripcio, 
+            'dataInici' => $dataInici, 
+            'dataFi' => $dataFi, 
+            'estat' => $estat
+
+        );
+
+        $newData = new Tareas();
+        
+        $newData->newData($arrayNewData);
+
+    }
+
+    public function deleteDataAction(){
+        
+        $deleteData = new Tareas();
+
+        $idTarea = $_SESSION['idTarea'];
+        
+        $deleteData->deleteData($idTarea);
 
     }
 

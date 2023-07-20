@@ -19,33 +19,64 @@
     <?php
     
     foreach ($_SESSION['arrayTasques'] as $fila) {
-        
+
         echo '<tr align="center">';
-            
+
+        $columnaActual = 0; // Variable de control para rastrear el índice de la columna actual
+
         foreach ($fila as $valor) {
 
-            if($valor==="0000-00-00"){
+            if ($valor === "0000-00-00") {
 
                 $valor = "-";
-    
+
             }
-        
-            echo '<td class="border border-slate-700 rounded-lg p-5 font-bold">' . $valor . '</td>';
-           
+
+            $claseColumna = '';
+
+            if ($columnaActual === 0) {
+
+                $claseColumna = 'font-bold'; // Estilo para la primera columna
+
+            } elseif ($columnaActual === 1) {
+
+                $claseColumna = 'uppercase'; // Estilo para la segunda columna
+
+            }
+
+            echo '<td class="border border-slate-700 rounded-lg p-5 ' . $claseColumna . '">' . $valor . '</td>';
+
+            $columnaActual++; // Incrementar el índice de la columna actual
         }
 
-    echo '</tr>';
-
+        echo '</tr>';
     }
 
-    echo '</tbody>';
-    echo '</table>';   
+    echo '</table>';
 
     ?>
-
-    </table>    
         
-<form class="flex flex-col items-center mb-20 -mt-20" action="mod_del" name="Tareas" method="post">
+<script>
+
+    function confirmacion(){
+
+        var respuesta = confirm("Segur que vols eliminar la tasca?");
+        if (respuesta ==true){
+
+            return true;
+
+        }
+
+        else {
+
+            return false;
+
+        }
+    }
+
+</script>
+        
+<form class="flex flex-col items-center mb-20 -mt-20" method="post" action="data">
 
     <select name="idTarea" style="margin-left:30px" required>
     
@@ -55,7 +86,7 @@
         
         foreach ($_SESSION['arrayTasques'] as $fila) {
             
-            echo '<option value="' . $fila['idTasques'] . '">' . $fila['idTasques'] . '</option>';
+            echo '<option value="' . $fila['idTasques'] . '">' . $fila['idTasques'] . ' - ' . $fila['nom_tasques'] . '</option>';
 
         }
         

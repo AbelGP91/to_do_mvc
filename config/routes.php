@@ -10,6 +10,7 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
+
 	'/test' => 'test#index',
 	'/' => 'index#index',
 	'/login' =>'index#login',
@@ -18,6 +19,10 @@ $routes = array(
 	'/crearTasca' => 'menu#crearTasca',
 	'/llistarTasques' => 'menu#llistarTasques',
 	'/addData' => 'menu#addData',
+	'/data' => 'menu#data',
+	'/newData' => 'menu#newData',
+	'/modifyData' => 'menu#modifyData',
+	'/deleteData' => 'menu#deleteData',
 	
 	
 );
