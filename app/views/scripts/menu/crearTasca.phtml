@@ -1,18 +1,32 @@
 <div class="flex justify-center items-center  bg-gray-100">
+
     <form name="ALTA" method="post" action="addTasca" class="w-full px-3 py-2 rounded mb-2 border-gray-300 focus:outline-none focus:border-blue-500">
-    <p class="font-bold mb-2">Introdueix el ID de la tasca</p>
-        <input type="number" name="idTasques" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
+   
+    <p class="font-bold mb-2">Introdueix l'autor de la tasca</p>
+        <input type="text" name="autor" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
     <p class="font-bold mb-2">Introdueix el títol de la tarea</p>
+
         <input type="text" name="titulo" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
     <p class="font-bold mb-2">Introdueix la descripcio de la tasca</p>
+    
         <input type="text" name="descripcio" id="descripcio" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
-        <p class="font-bold mb-2">Introdueix la data d'inici</p>
-            <input type="date" name="dataInici" id="dataInici" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
-        <p class="font-bold mb-2">Introdueix la data fi</p>
-            <input type="date" name="dataFi" id="dataFi" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500">
-        <p class="font-bold mb-2">Estat</p>
-            <input type="text" name="estat" class="w-full px-3 py-2 rounded mb-4 border border-gray-300 focus:outline-none focus:border-blue-500">
-        <br><br>
+    <p class="font-bold mb-2">Estat</p>
+    <div class="mb-4">
+            
+        <label class="inline-flex items-center">
+            <input type="radio" name="estat" value="Pendent" checked class="form-radio text-blue-500 focus:ring-blue-500">
+            <span class="ml-2">Pendent</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="radio" name="estat" value="Actiu" required class="form-radio text-blue-500 focus:ring-blue-500">
+            <span class="ml-2">Actiu</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="radio" name="estat" value="Finalitzat" class="form-radio text-blue-500 focus:ring-blue-500">
+            <span class="ml-2">Finalitzat</span>
+        </label>
+    </div>       
+    
         <input type="submit" value="Confirmar" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded">
     </form>
 </div>

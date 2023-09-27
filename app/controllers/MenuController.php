@@ -15,51 +15,32 @@ class MenuController extends ApplicationController
         }
     }
 
-    public function crearTascaAction()
-    {
-        // Acción para mostrar el formulario de creación de tareas
+    public function crearTascaAction(){// Acción para mostrar el formulario de creación de tareas
     }
 
-    public function addTascaAction()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $createTask = new Tareas();
-           //echo $usuariosJsonFile = $createTask->getRuta();
+    public function addTascaAction(){
+        // Acción del formulario para crear una nueva tarea
+    $autor = $_POST['autor'];
+    $titulo = $_POST['titulo'];
+    $descripcio = $_POST['descripcio'];
+    $estat = $_POST['estat'];
 
-            // Verificar si el usuario ha iniciado sesión
-            if (isset($_SESSION['usuarios'])) {
-                // Obtener el usuario actual de la sesión
-                $usuario = $_SESSION['usuarios'][0];
-                $idUsuario = $usuario['idUsuario'];
+    // Crear un array con los datos de la tarea
+    $tarea = [
+        'autor' => $autor,
+        'nom_tasques' => $titulo,
+        'descrip_tasques' => $descripcio,
+        'estat_tasques' => $estat,
+        'inici_tasques' => date('Y-m-d'),
+        'fi_tasques' => null
+    ];
 
-                // Obtener los datos enviados por el formulario
-                $idTasques = $_POST['idTasques'];
-                $titulo = $_POST['titulo'];
-                $descripcio = $_POST['descripcio'];
-                $dataInici = $_POST['dataInici'];
-                $dataFi = $_POST['dataFi'];
-                $estat = $_POST['estat'];
-
-                // Crear un array con los datos de la tarea
-                $tarea = [
-                    'idTasques' => $idTasques,
-                    'nom_tasques' => $titulo,
-                    'descrip_tasques' => $descripcio,
-                    'estat_tasques' => $estat,
-                    'inici_tasques' => $dataInici,
-                    'fi_tasques' => $dataFi,
-                    'Usuario_idUsuario' => $idUsuario
-                ];
-
-                // Llamar al método del modelo para crear la tarea
-                $createTask->createTarea($tarea);
-
-                // Redireccionar a la página de listado de tareas
-                header('Location: addTasca');
-                exit;
-            }
-        }
+    if ($estat === 'Finalitzat') {
+        $tarea['fi_tasques'] = date('Y-m-d');
     }
+
+    Tareas::guardarTarea($tarea);
+     }
 
     public function llistarTasquesAction()
     {
@@ -92,9 +73,7 @@ class MenuController extends ApplicationController
         }
     }
 
-    public function borrarTascaAction()
-    {
-        // Acción para mostrar el formulario de eliminación de tarea
+    public function borrarTascaAction(){  // Acción para mostrar el formulario de eliminación de tarea
     }
 
     public function deleteTascaAction()
@@ -110,9 +89,7 @@ class MenuController extends ApplicationController
         }
     }
 
-    public function actualitzarTascaAction()
-    {
-        // Acción para mostrar el formulario de actualización de tarea
+    public function actualitzarTascaAction(){ // Acción para mostrar el formulario de actualización de tarea
     }
 
     public function updateTascaAction()
