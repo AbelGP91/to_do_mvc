@@ -1,6 +1,59 @@
 <?php 
 class Tareas extends Model{
-private $usuariosJsonFile;
+
+ static array $tareas;
+
+ static string $filePath = '../persistencia/usuarios.json';
+
+ public static function comprobarJson(){
+     if(!file_exists(self::$filePath)){
+         mkdir(ROOT_PATH . "../persistencia");
+
+         file_put_contents(self::$filePath, []);
+     }
+     
+ }
+
+ public static function obtenerTareas() {
+     self::comprobarJson();
+
+     $jsonContent = file_get_contents(self::$filePath);
+
+     $data = json_decode($jsonContent, true);
+
+     return $data ?: [];
+ }
+
+ public static function escribirJson($tareas):void {
+     $jsonData = json_encode($tareas, JSON_PRETTY_PRINT);
+
+     file_put_contents(self::$filePath, $jsonData);
+ }
+
+ public static function obtenerTareaPorId($tareaId){
+
+    $tareas = self::obtenerTareas();
+    if (isset($tareas[$tareaId])) {
+        return $tareas[$tareaId];
+    } else {
+        return null;
+    }  
+ }
+
+ public static function guardarTarea($tarea): void {
+     Tareas::comprobarJson();
+
+     $tareas = Tareas::obtenerTareas();
+
+     $tareas[] = $tarea;
+
+     Tareas::escribirJson($tareas);
+ }
+
+
+
+
+/*
 
     public function __construct()
     {
@@ -26,7 +79,7 @@ private $usuariosJsonFile;
              para retornar el valor de $data['tasques'] si está definido y no es null.
               En caso contrario, si $data['tasques'] es null o no está definido,
             se retorna un array vacío ([]).*/            
-             return $data['tasques'] ?? [];
+           /*  return $data['tasques'] ?? [];
         }
 
     public function createTarea($tarea)
@@ -118,5 +171,8 @@ private $usuariosJsonFile;
 
         // Guardar el JSON actualizado en el archivo
         file_put_contents($usuariosJsonFile, $usuariosJson);
-    }
+
+
+    */
+    
 }

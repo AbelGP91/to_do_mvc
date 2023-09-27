@@ -11,11 +11,7 @@
  */
 
 $routes = array(
-	'/test' => 'test#index',
-	'/' => 'index#index',
-	'/login' => 'index#login',
-	'/errorLogin' => 'index#errorLogin',
-	'/menu' => 'index#menu',
+	'/' => 'index#menu',
 	'/options' => 'menu#options',
 	'/crearTasca' => 'menu#crearTasca',
 	'/addTasca' => 'menu#addTasca',
@@ -27,8 +23,4 @@ $routes = array(
 	'/deleteTasca'  => 'menu#deleteTasca',
 	'/updateTasca'  => 'menu#updateTasca',
 	'/modifiedTasca'  => 'menu#modifiedTasca',
-
-
-
-	
 );

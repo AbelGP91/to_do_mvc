@@ -1,76 +1,98 @@
-{
-    "usuarios": [
-        {
-            "idUsuario": 1,
-            "nom_usuari": "Usuario1",
-            "cognom1_usuari": "Apellido1",
-            "cognom2_usuari": "Apellido2",
-            "email_usuari": "usuario1@example.com",
-            "password_usuari": "contra1"
-        },
-        {
-            "idUsuario": 2,
-            "nom_usuari": "Usuario2",
-            "cognom1_usuari": "Apellido1",
-            "cognom2_usuari": "Apellido2",
-            "email_usuari": "usuario2@example.com",
-            "password_usuari": "contra2"
-        }
-    ],
-    "tasques": [
-        {
-            "idTasques": "1",
-            "nom_tasques": "Tarea1",
-            "descrip_tasques": "Descripci\u00f3n de la tarea 1",
-            "estat_tasques": "En proceso",
-            "inici_tasques": "2023-06-27 09:00:00",
-            "fi_tasques": "2023-06-27 14:00:00",
-            "Usuario_idUsuario": 1
-        },
-        {
-            "idTasques": "2",
-            "nom_tasques": "Tarea2",
-            "descrip_tasques": "Descripci\u00f3n de la tarea 2",
-            "estat_tasques": "Completada",
-            "inici_tasques": "2023-06-28 10:00:00",
-            "fi_tasques": "2023-06-28 12:00:00",
-            "Usuario_idUsuario": 1
-        },
-        {
-            "idTasques": 3,
-            "nom_tasques": "Tarea3",
-            "descrip_tasques": "Descripci\u00f3n de la tarea 3",
-            "estat_tasques": "En proceso",
-            "inici_tasques": "2023-06-29 09:00:00",
-            "fi_tasques": "2023-06-29 14:00:00",
-            "Usuario_idUsuario": 2
-        },
-        {
-            "idTasques": "4",
-            "nom_tasques": "Estudiar PHP",
-            "descrip_tasques": "Repasar patrones",
-            "estat_tasques": "Finalizada",
-            "inici_tasques": "2023-07-19",
-            "fi_tasques": "2023-07-31",
-            "Usuario_idUsuario": 2
-        },
-        {
-            "idTasques": "5",
-            "nom_tasques": "dominar el mundo",
-            "descrip_tasques": "no lo s\u00e9 a\u00fan c\u00f3mo",
-            "estat_tasques": "666",
-            "inici_tasques": "1111-11-11",
-            "fi_tasques": "",
-            "Usuario_idUsuario": 3
-        },
-        {
-            "idTasques": "6",
-            "nom_tasques": "Vacaciones",
-            "descrip_tasques": "Descansar",
-            "estat_tasques": "Pendiente",
-            "inici_tasques": "2023-07-22",
-            "fi_tasques": "2023-07-23",
-            "Usuario_idUsuario": 3
-        }
-    ]
-}
+[
+    {
+        "autor": "bryan",
+        "nom_tasques": "dormir",
+        "descrip_tasques": "8h",
+        "estat_tasques": "Finished",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "paco",
+        "nom_tasques": "programar",
+        "descrip_tasques": "hacer un crud",
+        "estat_tasques": "Finished",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "pancracio",
+        "nom_tasques": "dominar el mundo",
+        "descrip_tasques": "Muy dificil",
+        "estat_tasques": "Active",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "julio",
+        "nom_tasques": "correr",
+        "descrip_tasques": "3h cada dia",
+        "estat_tasques": "Pending",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "augusto",
+        "nom_tasques": "latin",
+        "descrip_tasques": "repasar",
+        "estat_tasques": "Active",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "arnau",
+        "nom_tasques": "catalan",
+        "descrip_tasques": "repasar pronoms",
+        "estat_tasques": "Finished",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "Herman",
+        "nom_tasques": "Estudiar",
+        "descrip_tasques": "Frances",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "Loli",
+        "nom_tasques": "dormir",
+        "descrip_tasques": "por la tarde",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "akiko",
+        "nom_tasques": "correr",
+        "descrip_tasques": "hoy",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "akiko",
+        "nom_tasques": "correr",
+        "descrip_tasques": "hoy",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "Raul",
+        "nom_tasques": "pasear",
+        "descrip_tasques": "hecho",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": null
+    },
+    {
+        "autor": "coco",
+        "nom_tasques": "meditar",
+        "descrip_tasques": "2h hoy",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-27",
+        "fi_tasques": "2023-09-27"
+    }
+]

@@ -4,8 +4,49 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+
+<header>
+    <nav class="bg-blue-500 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+
+            <!-- Logo o nombre del sitio -->
+            <div>
+                <a href="https://cibernarium.barcelonactiva.cat/it-academy/inscripcio;jsessionid=44A52BE7E44A35C9674C0DA90890BF48"
+                   class="text-white text-lg font-bold hover:text-blue-200 transition duration-200 ease-in-out px-4">IT Academy</a>
+            </div>
+
+            <!-- Formulario y botones -->
+            <div class="flex">
+                <form action="options" method="post" class="flex items-center">
+                    <div class="bg-gray-200 py-1 px-4 rounded font-bold mb-5 mr-4 text-sm">
+                        <label for="menu">Selecciona la opción deseada</label>
+                    </div>
+
+                    <div class="flex flex-row gap-2">
+                        <button class="bg-blue-500 text-white font-bold py-1 px-3 rounded hover:bg-blue-600 transition duration-200 ease-in-out" name="crear">Crear</button>
+                        <button class="bg-blue-500 text-white font-bold py-1 px-3 rounded hover:bg-blue-600 transition duration-200 ease-in-out" name="llistar">Llistar</button>
+                        <button class="bg-blue-500 text-white font-bold py-1 px-3 rounded hover:bg-blue-600 transition duration-200 ease-in-out" name="modificar">Modificar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+<main>
 	<?php echo $this->content(); ?>
+</main>
+	
+<footer class="bg-blue-500 text-white text-center py-4">
+  <p>Projecte d'Abel i Bryan</p>
+  <span>Spring 3 del itinerari Fullstack PHP, IT Academy 2023</span>
+</footer>
+
+
 </body>
 </html>
