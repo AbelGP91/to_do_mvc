@@ -64,15 +64,20 @@ class MenuController extends ApplicationController
 
     }
 
-    public function modificarOpcionsAction()
-    {
-        if (isset($_POST['borrar'])) {
-            header('Location: borrarTasca');
-            exit;
-        } elseif (isset($_POST['actualitzar'])) {
-            header('Location: actualitzarTasca');
-            exit;
+    public function actualitzarTascaAction(){
+        if(isset($_GET['tareaId'])){
+            $tareaId = $_GET['tareaId'];
+            $tarea = Tareas::obtenerTareaPorId($tareaId);
+
+            if ($tarea !== null) {
+                $this->view->tarea = $tarea;
+                $this->view->tareaId = $tareaId;
+            }
         }
+    }
+
+    public function modifiedTascaAction(){
+       
     }
 
     public function borrarTascaAction(){  // Acción para mostrar el formulario de eliminación de tarea
@@ -88,37 +93,6 @@ class MenuController extends ApplicationController
                 // Llamar al método del modelo para eliminar la tarea
                 $deleteTask->deleteTarea($idTareaSeleccionada);
             }
-        }
-    }
-
-    public function actualitzarTascaAction(){ // Acción para mostrar el formulario de actualización de tarea
-    }
-
-    public function updateTascaAction()
-    {
-        $idTarea = $_POST['idTarea'];
-        $_SESSION['idTarea'] = $idTarea; // Almacenar el valor en la sesión
-    }
-
-    public function modifiedTascaAction()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['idTarea'])) {
-            $modifyTask = new Tareas();
-            $idTarea = $_SESSION['idTarea'];
-
-            // Obtener los datos enviados por el formulario
-            $titulo = $_POST['titulo'] ?? '';
-            $descripcio = $_POST['descripcio'] ?? '';
-            $dataInici = $_POST['dataInici'] ?? '';
-            $dataFi = $_POST['dataFi'] ?? '';
-            $estat = $_POST['estat'] ?? '';
-
-            // Llamar al método del modelo para actualizar la tarea
-            $modifyTask->updateTarea($idTarea, $titulo, $descripcio, $dataInici, $dataFi, $estat);
-
-            // Redireccionar a la página de listado de tareas
-            header('Location: modifiedTasca');
-            exit;
         }
     }
 }

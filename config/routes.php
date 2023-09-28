@@ -13,16 +13,21 @@
 $routes = array(
 	'/' => 'index#menu',
 	'/options' => 'menu#options',
+
+	// create
 	'/crearTasca' => 'menu#crearTasca',
 	'/addTasca' => 'menu#addTasca',
+
+	// read
 	'/llistarTasques' => 'menu#llistarTasques',
 	'/veureTasca' => 'menu#veureTasca',
 
-	
-	'/modificarOpcions'  => 'menu#modificarOpcions',
+	// update 
+	'/modifiedTasca'  => 'menu#modifiedTasca',
 	'/actualitzarTasca'  => 'menu#actualitzarTasca',
+
+	// delete
 	'/borrarTasca'  => 'menu#borrarTasca',
 	'/deleteTasca'  => 'menu#deleteTasca',
-	'/updateTasca'  => 'menu#updateTasca',
-	'/modifiedTasca'  => 'menu#modifiedTasca',
+	
 );

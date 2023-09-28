@@ -1,15 +1,36 @@
+<?php $tarea = $this->tarea;  $tareaId = $this->tareaId; ?>
+
+
 <div class="flex justify-center items-center h-screen flex-col">
-  <h2 class="text-center mb-4">Seleccioneu una tasca per actualitzar:</h2>
+  <h2 class="text-center mb-4"> Actualitzar la tasca :</h2>
   
-    <form method="POST" action="updateTasca" class="w-3/4 md:w-1/2 lg:w-1/3 bg-gray-100 p-8 rounded shadow">
-    <select name="idTarea" class="w-full bg-white border border-gray-300 p-2 rounded mb-4">
-      <option value="">Seleccioneu una tasca</option>
-      <?php foreach ($_SESSION['data']['tasques'] as $tarea) {
-          echo '<option value="' . $tarea['idTasques'] . '">' . $tarea['idTasques'] . ' - ' . $tarea['nom_tasques'] . '</option>';
-      }?>
-    </select>
-    <input type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded" value="Actualitzar"
-    onclick="return confirm('Esteu segur que voleu actualitzar aquesta tasca?')">
+    <form method="POST" action="modifiedTasca" class="w-3/4 md:w-1/2 lg:w-1/3 bg-gray-100 p-8 rounded shadow">
+    <p class="font-bold mb-2">Introdueix l'autor de la tasca</p>
+        <input type="text" name="autor" value="<?= $tarea['autor'] ?>" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
+    <p class="font-bold mb-2">Introdueix el títol de la tarea</p>
+
+        <input type="text" name="titulo" value="<?= $tarea['nom_tasques'] ?>" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
+    <p class="font-bold mb-2">Introdueix la descripcio de la tasca</p>
+    
+        <input type="text" name="descripcio" id="descripcio" value="<?= $tarea['descrip_tasques'] ?>" class="w-full px-3 py-2 rounded mb-2 border border-gray-300 focus:outline-none focus:border-blue-500" required>
+    <p class="font-bold mb-2">Estat</p>
+    <div class="mb-4">
+            
+        <label class="inline-flex items-center">
+            <input type="radio" name="estat" value="Pendent" checked class="form-radio text-blue-500 focus:ring-blue-500">
+            <span class="ml-2">Pendent</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="radio" name="estat" value="Actiu" required class="form-radio text-blue-500 focus:ring-blue-500">
+            <span class="ml-2">Actiu</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="radio" name="estat" value="Finalitzat" class="form-radio text-blue-500 focus:ring-blue-500">
+            <span class="ml-2">Finalitzat</span>
+        </label>
+    </div>       
+    
+        <input type="submit" value="Confirmar" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded">
   </form>
 
 </div>
