@@ -30,7 +30,7 @@ class Tareas extends Model{
      file_put_contents(self::$filePath, $jsonData);
  }
 
- public static function obtenerTareaPorId($tareaId){
+ public static function obtenerTareaPorId($tareaId): ?array{
 
     $tareas = self::obtenerTareas();
     if (isset($tareas[$tareaId])) {
@@ -50,6 +50,8 @@ class Tareas extends Model{
      Tareas::escribirJson($tareas);
  }
 
+
+ 
 
 
 

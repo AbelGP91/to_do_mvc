@@ -1,8 +1,7 @@
 <?php
 class MenuController extends ApplicationController
 {
-    public function optionsAction()
-    {
+    public function optionsAction(){
         if (isset($_POST['llistar'])) {
             header('Location: llistarTasques');
             exit;
@@ -20,26 +19,28 @@ class MenuController extends ApplicationController
 
     public function addTascaAction(){
         // Acción del formulario para crear una nueva tarea
-    $autor = $_POST['autor'];
-    $titulo = $_POST['titulo'];
-    $descripcio = $_POST['descripcio'];
-    $estat = $_POST['estat'];
+        $autor = $_POST['autor'];
+        $titulo = $_POST['titulo'];
+        $descripcio = $_POST['descripcio'];
+        $estat = $_POST['estat'];
 
-    // Crear un array con los datos de la tarea
-    $tarea = [
-        'autor' => $autor,
-        'nom_tasques' => $titulo,
-        'descrip_tasques' => $descripcio,
-        'estat_tasques' => $estat,
-        'inici_tasques' => date('Y-m-d'),
-        'fi_tasques' => null
-    ];
+        
 
-    if ($estat === 'Finalitzat') {
-        $tarea['fi_tasques'] = date('Y-m-d');
-    }
+        // Crear un array con los datos de la tarea
+        $tarea = [
+            'autor' => $autor,
+            'nom_tasques' => $titulo,
+            'descrip_tasques' => $descripcio,
+            'estat_tasques' => $estat,
+            'inici_tasques' => date('Y-m-d'),
+            'fi_tasques' => null
+        ];
 
-    Tareas::guardarTarea($tarea);
+        if ($estat === 'Finalitzat') {
+            $tarea['fi_tasques'] = date('Y-m-d');
+        }
+
+        Tareas::guardarTarea($tarea);
      }
 
     public function llistarTasquesAction()
@@ -49,14 +50,18 @@ class MenuController extends ApplicationController
         $this->view->tareas = $tareas;
     }
 
-    public function modificarTascaAction()
+    public function veureTascaAction()
     {
-        $modificarTasks = new Tareas();
-        $data = array();
-        $data['tasques'] = $modificarTasks->getTareas();
+        if(isset($_GET['tareaId'])){
+            $tareaId = $_GET['tareaId'];
+            $tarea = Tareas::obtenerTareaPorId($tareaId);
 
-        // Guardar los datos en una $_sesión en la línea 11 de llistarTasques.phtml
-        $_SESSION['data'] = $data;
+            if ($tarea !== null) {
+                $this->view->tarea = $tarea;
+                $this->view->tareaId = $tareaId;
+            }
+        }
+
     }
 
     public function modificarOpcionsAction()
