@@ -93,12 +93,54 @@ class MenuController extends ApplicationController
             if ($tarea !== null) {
                 $this->view->tarea = $tarea;
                 $this->view->tareaId = $tareaId;
-            }
+
+                if (isset($_POST['update'])) {
+                    $autor = $_POST['autor'];
+                    $nomTasques = $_POST['titulo'];
+                    $descripcio = $_POST['descripcio'];
+                    $estat = $_POST['estat'];
+
+                    $fechaInicio = isset($tarea['inici_tasques']) ? $tarea['inici_tasques'] : null;
+
+                     if($tarea && $tarea['estat_tasques'] !== $estat) {
+
+                        if ($estat === 'Finalitzat') {
+                            $fechaFin = date('Y-m-d');
+                        } else {
+                            $fechaFin = null;
+                        }
+
+                    } else {
+                        $fechaFin = isset($tarea['fi_tasques']) ? $tarea['fi_tasques'] : null;
+                    }
+
+                    // Crear un array con los datos de la tarea actualizada
+
+                    $tareaModificada = [
+                        'autor' => $autor,
+                        'nom_tasques' => $nomTasques,
+                        'descrip_tasques' => $descripcio,
+                        'estat_tasques' => $estat,
+                        'inici_tasques' => $fechaInicio,
+                        'fi_tasques' => $fechaFin
+                    ];
+
+                     Tareas::actualizarTarea($tareaId, $tareaModificada);
+
+                    echo "alert('Tasca actualitzada')";
+
+                    header('Location: llistarTasques');
+                    exit;
+        
+                }     
+             }
         }
     }
 
+
+
     public function modifiedTascaAction(){
-       
+        
     }
 
     public function borrarTascaAction(){  // Acción para mostrar el formulario de eliminación de tarea
@@ -106,14 +148,13 @@ class MenuController extends ApplicationController
 
     public function deleteTascaAction()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $deleteTask = new Tareas();
-            $idTareaSeleccionada = $_POST['idTarea'];
+       if(isset($_GET['tareaId'])){
+            $tareaId = $_GET['tareaId'];
+            $tarea = Tareas::obtenerTareaPorId($tareaId);
 
-            if (!empty($idTareaSeleccionada)) {
-                // Llamar al método del modelo para eliminar la tarea
-                $deleteTask->deleteTarea($idTareaSeleccionada);
-            }
+        header('Location: deleteTasca');  
+        
+        exit;
         }
     }
 }

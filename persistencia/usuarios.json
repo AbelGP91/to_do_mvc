@@ -1,106 +1,98 @@
-[
-    {
-        "autor": "bryan",
-        "nom_tasques": "dormir",
-        "descrip_tasques": "8h",
-        "estat_tasques": "Finished",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "paco",
-        "nom_tasques": "programar",
-        "descrip_tasques": "hacer un crud",
-        "estat_tasques": "Finished",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "pancracio",
-        "nom_tasques": "dominar el mundo",
-        "descrip_tasques": "Muy dificil",
-        "estat_tasques": "Active",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "julio",
-        "nom_tasques": "correr",
-        "descrip_tasques": "3h cada dia",
-        "estat_tasques": "Pending",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "augusto",
-        "nom_tasques": "latin",
-        "descrip_tasques": "repasar",
-        "estat_tasques": "Active",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "arnau",
-        "nom_tasques": "catalan",
-        "descrip_tasques": "repasar pronoms",
-        "estat_tasques": "Finished",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "Herman",
+{
+    "0": {
+        "autor": "Bryan",
         "nom_tasques": "Estudiar",
-        "descrip_tasques": "Frances",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-27",
+        "descrip_tasques": "8h el finde",
+        "estat_tasques": "Actiu",
+        "inici_tasques": "2023-09-28",
         "fi_tasques": null
     },
-    {
-        "autor": "Loli",
+    "2": {
+        "autor": "Anselmo",
+        "nom_tasques": "sobrevivir",
+        "descrip_tasques": "Cada dia",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "3": {
+        "autor": "Anselmo",
+        "nom_tasques": "sobrevivir",
+        "descrip_tasques": "Cada dia",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "4": {
+        "autor": "Julio Cesar",
+        "nom_tasques": "conquistar la galia",
+        "descrip_tasques": "Asterix esta ahi",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "5": {
+        "autor": "Julio Cesar",
+        "nom_tasques": "conquistar la galia",
+        "descrip_tasques": "Asterix esta ahi",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "6": {
+        "autor": "Julio Cesar",
+        "nom_tasques": "conquistar la galia",
+        "descrip_tasques": "Asterix esta ahi",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "7": {
+        "autor": "Julio Cesar",
+        "nom_tasques": "conquistar la galia",
+        "descrip_tasques": "Asterix esta ahi",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "8": {
+        "autor": "Julio Cesar",
+        "nom_tasques": "conquistar la galia",
+        "descrip_tasques": "Asterix esta ahi",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "9": {
+        "autor": "Julio Cesar",
+        "nom_tasques": "conquistar la galia",
+        "descrip_tasques": "Asterix esta ahi",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-29",
+        "fi_tasques": "2023-09-29"
+    },
+    "10": {
+        "autor": "bryanete",
         "nom_tasques": "dormir",
-        "descrip_tasques": "por la tarde",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-27",
+        "descrip_tasques": "6h el finde",
+        "estat_tasques": "Pendent",
+        "inici_tasques": "2023-09-29",
         "fi_tasques": null
     },
-    {
-        "autor": "akiko",
-        "nom_tasques": "correr",
-        "descrip_tasques": "hoy",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-27",
+    "11": {
+        "autor": "bryanete",
+        "nom_tasques": "dormir",
+        "descrip_tasques": "6h el finde",
+        "estat_tasques": "Pendent",
+        "inici_tasques": "2023-09-29",
         "fi_tasques": null
     },
-    {
-        "autor": "akiko",
-        "nom_tasques": "correr",
-        "descrip_tasques": "hoy",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "Raul",
-        "nom_tasques": "pasear",
-        "descrip_tasques": "hecho",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": null
-    },
-    {
-        "autor": "coco",
-        "nom_tasques": "meditar",
-        "descrip_tasques": "2h hoy",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-27",
-        "fi_tasques": "2023-09-27"
-    },
-    {
-        "autor": "kk",
-        "nom_tasques": "kk",
-        "descrip_tasques": "kk",
+    "1": {
+        "autor": "Paquito",
+        "nom_tasques": "sprint 5 ",
+        "descrip_tasques": "API rest",
         "estat_tasques": "Finalitzat",
         "inici_tasques": "2023-09-28",
-        "fi_tasques": "2023-09-28"
+        "fi_tasques": "2023-09-29"
     }
-]
+}
