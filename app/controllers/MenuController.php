@@ -66,6 +66,16 @@ class MenuController extends ApplicationController
 
     public function modificarOpcionsAction()
     {
+        if(isset($_GET['tareaId'])){
+            $tareaId = $_GET['tareaId'];
+            $tarea = Tareas::obtenerTareaPorId($tareaId);
+
+            if ($tarea !== null) {
+                $this->view->tarea = $tarea;
+                $this->view->tareaId = $tareaId;
+            }
+        }
+        
         if (isset($_POST['borrar'])) {
             header('Location: borrarTasca');
             exit;
@@ -75,50 +85,76 @@ class MenuController extends ApplicationController
         }
     }
 
+    public function actualitzarTascaAction(){
+        if(isset($_GET['tareaId'])){
+            $tareaId = $_GET['tareaId'];
+            $tarea = Tareas::obtenerTareaPorId($tareaId);
+
+            if ($tarea !== null) {
+                $this->view->tarea = $tarea;
+                $this->view->tareaId = $tareaId;
+
+                if (isset($_POST['update'])) {
+                    $autor = $_POST['autor'];
+                    $nomTasques = $_POST['titulo'];
+                    $descripcio = $_POST['descripcio'];
+                    $estat = $_POST['estat'];
+
+                    $fechaInicio = isset($tarea['inici_tasques']) ? $tarea['inici_tasques'] : null;
+
+                     if($tarea && $tarea['estat_tasques'] !== $estat) {
+
+                        if ($estat === 'Finalitzat') {
+                            $fechaFin = date('Y-m-d');
+                        } else {
+                            $fechaFin = null;
+                        }
+
+                    } else {
+                        $fechaFin = isset($tarea['fi_tasques']) ? $tarea['fi_tasques'] : null;
+                    }
+
+                    // Crear un array con los datos de la tarea actualizada
+
+                    $tareaModificada = [
+                        'autor' => $autor,
+                        'nom_tasques' => $nomTasques,
+                        'descrip_tasques' => $descripcio,
+                        'estat_tasques' => $estat,
+                        'inici_tasques' => $fechaInicio,
+                        'fi_tasques' => $fechaFin
+                    ];
+
+                     Tareas::actualizarTarea($tareaId, $tareaModificada);
+
+                    echo "alert('Tasca actualitzada')";
+
+                    header('Location: llistarTasques');
+                    exit;
+        
+                }     
+             }
+        }
+    }
+
+
+
+    public function modifiedTascaAction(){
+        
+    }
+
     public function borrarTascaAction(){  // Acción para mostrar el formulario de eliminación de tarea
     }
 
     public function deleteTascaAction()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $deleteTask = new Tareas();
-            $idTareaSeleccionada = $_POST['idTarea'];
+       if(isset($_GET['tareaId'])){
+            $tareaId = $_GET['tareaId'];
+            $tarea = Tareas::obtenerTareaPorId($tareaId);
 
-            if (!empty($idTareaSeleccionada)) {
-                // Llamar al método del modelo para eliminar la tarea
-                $deleteTask->deleteTarea($idTareaSeleccionada);
-            }
-        }
-    }
-
-    public function actualitzarTascaAction(){ // Acción para mostrar el formulario de actualización de tarea
-    }
-
-    public function updateTascaAction()
-    {
-        $idTarea = $_POST['idTarea'];
-        $_SESSION['idTarea'] = $idTarea; // Almacenar el valor en la sesión
-    }
-
-    public function modifiedTascaAction()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['idTarea'])) {
-            $modifyTask = new Tareas();
-            $idTarea = $_SESSION['idTarea'];
-
-            // Obtener los datos enviados por el formulario
-            $titulo = $_POST['titulo'] ?? '';
-            $descripcio = $_POST['descripcio'] ?? '';
-            $dataInici = $_POST['dataInici'] ?? '';
-            $dataFi = $_POST['dataFi'] ?? '';
-            $estat = $_POST['estat'] ?? '';
-
-            // Llamar al método del modelo para actualizar la tarea
-            $modifyTask->updateTarea($idTarea, $titulo, $descripcio, $dataInici, $dataFi, $estat);
-
-            // Redireccionar a la página de listado de tareas
-            header('Location: modifiedTasca');
-            exit;
+        header('Location: deleteTasca');  
+        
+        exit;
         }
     }
 }
