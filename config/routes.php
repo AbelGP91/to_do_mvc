@@ -24,6 +24,7 @@ $routes = array(
 
 	// update 
 	'/modifiedTasca'  => 'menu#modifiedTasca',
+	'/modificarOpcions'  => 'menu#modificarOpcions',
 	'/actualitzarTasca'  => 'menu#actualitzarTasca',
 
 	// delete

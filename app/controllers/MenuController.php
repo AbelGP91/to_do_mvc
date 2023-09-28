@@ -64,6 +64,27 @@ class MenuController extends ApplicationController
 
     }
 
+    public function modificarOpcionsAction()
+    {
+        if(isset($_GET['tareaId'])){
+            $tareaId = $_GET['tareaId'];
+            $tarea = Tareas::obtenerTareaPorId($tareaId);
+
+            if ($tarea !== null) {
+                $this->view->tarea = $tarea;
+                $this->view->tareaId = $tareaId;
+            }
+        }
+        
+        if (isset($_POST['borrar'])) {
+            header('Location: borrarTasca');
+            exit;
+        } elseif (isset($_POST['actualitzar'])) {
+            header('Location: actualitzarTasca');
+            exit;
+        }
+    }
+
     public function actualitzarTascaAction(){
         if(isset($_GET['tareaId'])){
             $tareaId = $_GET['tareaId'];

@@ -1,4 +1,6 @@
-<?php $tarea = $this->tarea;  $tareaId = $this->tareaId; ?>
+<?php $tarea = $this->tarea;  $tareaId = $this->tareaId; 
+$url = $this->baseUrl();?>
+
 
 <section class="mt-10 h-screen">
     <table class="border-collapse w-4/5 mx-auto shadow-lg rounded-lg">
@@ -25,10 +27,8 @@
 </table>
 
 <article class="mt-20 flex justify-center items-center">
-    <form action="modificarOpcions" method="post" class="bg-white shadow-lg p-5 rounded-md">
-        <div class="mb-5">
-            <label class="block text-gray-600 font-bold mb-2" name="menu">Seleccioneu l'opció desitjada</label>
-        </div>
+    <form action="<?= $url ?>/actualitzarTasca?tareaId=<?= $tareaId ?>" method="post" class="bg-white shadow-lg p-5 rounded-md">
+       
             
         <div class="flex gap-4">
             <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300" name="borrar">Borrar tasca</button>

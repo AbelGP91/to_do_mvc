@@ -94,5 +94,13 @@
         "estat_tasques": "Finalitzat",
         "inici_tasques": "2023-09-27",
         "fi_tasques": "2023-09-27"
+    },
+    {
+        "autor": "kk",
+        "nom_tasques": "kk",
+        "descrip_tasques": "kk",
+        "estat_tasques": "Finalitzat",
+        "inici_tasques": "2023-09-28",
+        "fi_tasques": "2023-09-28"
     }
 ]
