@@ -1,0 +1,42 @@
+<?php $tarea = $this->tarea;  
+$tareaId = $this->tareaId;
+?>
+
+<section class="mt-10 h-screen">
+    <table class="border-collapse w-4/5 mx-auto shadow-lg rounded-lg">
+    <thead>
+        <tr>
+            <th class="px-4 py-2 bg-blue-300 border">Autor</th>
+            <th class="px-4 py-2 bg-blue-300 border">Titol</th>
+            <th class="px-4 py-2 bg-blue-300 border">Descripció</th>
+            <th class="px-4 py-2 bg-blue-300 border">Estat</th>
+            <th class="px-4 py-2 bg-blue-300 border">Data Inici</th>
+            <th class="px-4 py-2 bg-blue-300 border">Data Fi</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td class="px-4 py-2 border text-center"><?= $tarea['autor'] ?></td>
+                <td class="px-4 py-2 border text-center"><?= $tarea['nom_tasques'] ?></td>
+                <td class="px-4 py-2 border text-center"><?= $tarea['descrip_tasques'] ?></td>
+                <td class="px-4 py-2 border text-center"><?= $tarea['estat_tasques'] ?></td>
+                <td class="px-4 py-2 border text-center"><?= $tarea['inici_tasques'] ?></td>
+                <td class="px-4 py-2 border text-center"><?= $tarea['fi_tasques'] ?></td>
+            </tr>
+    </tbody>
+</table>
+
+<article class="mt-20 flex justify-center items-center">
+    <form action="modificarOpcions" method="post" class="bg-white shadow-lg p-5 rounded-md">
+        <div class="mb-5">
+            <label class="block text-gray-600 font-bold mb-2" name="menu">Seleccioneu l'opció desitjada</label>
+        </div>
+            
+        <div class="flex gap-4">
+            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300" name="borrar">Borrar tasca</button>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300" name="actualitzar">Actualitzar tasca</button>
+        </div>
+    </form>
+</article>
+
+</section>

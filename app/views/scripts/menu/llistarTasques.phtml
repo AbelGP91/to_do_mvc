@@ -1,28 +1,35 @@
-<table class="border-collapse w-full h-screen">
-    <thead>
-        <tr>
-            <th class="px-2 py-1 border">Tasca ID</th>
-            <th class="px-2 py-1 border">Titol</th>
-            <th class="px-2 py-1 border">Descripció</th>
-            <th class="px-2 py-1 border">Estat</th>
-            <th class="px-2 py-1 border">Data Inici</th>
-            <th class="px-2 py-1 border">Data Fi</th>
-            <th class="px-2 py-1 border">ID usuari</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
-            
-        foreach ($_SESSION['data']['tasques'] as $task): ?>
+<?php $url = $this->baseUrl(); $tareas = $this->tareas; ?>
+
+<div class="bg-white shadow-md rounded my-6 mx-4">
+    <table class="w-full border-collapse">
+        <thead>
             <tr>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['idTasques'] ?></td>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['nom_tasques'] ?></td>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['descrip_tasques'] ?></td>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['estat_tasques'] ?></td>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['inici_tasques'] ?></td>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['fi_tasques'] ?></td>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['Usuario_idUsuario'] ?></td>
+                <th class="px-6 py-3 bg-gray-200 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Autor</th>
+                <th class="px-6 py-3 bg-gray-200 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Titol</th>
+                <th class="px-6 py-3 bg-gray-200 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Descripció</th>
+                <th class="px-6 py-3 bg-gray-200 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Estat</th>
+                <th class="px-6 py-3 bg-gray-200 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Data Inici</th>
+                <th class="px-6 py-3 bg-gray-200 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Data Fi</th>
+                <th class="px-6 py-3 bg-gray-200 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Opcions</th>
             </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-500 ">
+            <?php foreach ($tareas as $tareaId => $tarea): ?>
+                <tr class="hover:bg-lime-100" >
+                    <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['autor'] ?></td>
+                    <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['nom_tasques'] ?></td>
+                    <td class="px-6 py-4"><?= $tarea['descrip_tasques'] ?></td>
+                    <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['estat_tasques'] ?></td>
+                    <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['inici_tasques'] ?></td>
+                    <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['fi_tasques'] ?></td>
+                    <td class="px-6 py-4 text-center">
+                        <form action="<?= $url ?>/veureTasca?tareaId=<?= $tareaId ?>" method="post">
+                            <input type="hidden" name="tareaId" value="<?= $tareaId ?>">
+                            <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50">Veure</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
