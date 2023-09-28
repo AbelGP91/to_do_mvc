@@ -1,27 +1,30 @@
+<?php
+$url = $this->baseUrl();
+$tareas = $this->tareas; ?>
+
+
 <table class="border-collapse w-full h-screen">
     <thead>
         <tr>
-            <th class="px-2 py-1 border">Tasca ID</th>
+            <th class="px-2 py-1 border">Autor</th>
             <th class="px-2 py-1 border">Titol</th>
             <th class="px-2 py-1 border">Descripció</th>
             <th class="px-2 py-1 border">Estat</th>
             <th class="px-2 py-1 border">Data Inici</th>
             <th class="px-2 py-1 border">Data Fi</th>
-            <th class="px-2 py-1 border">ID usuari</th>
         </tr>
     </thead>
     <tbody>
         <?php 
             
-        foreach ($_SESSION['data']['tasques'] as $task): ?>
+        foreach ($tareas as $task): ?>
             <tr>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['idTasques'] ?></td>
+                <td class="px-2 py-1 border w-auto text-center"><?= $task['autor'] ?></td>
                 <td class="px-2 py-1 border w-auto text-center"><?= $task['nom_tasques'] ?></td>
                 <td class="px-2 py-1 border w-auto text-center"><?= $task['descrip_tasques'] ?></td>
                 <td class="px-2 py-1 border w-auto text-center"><?= $task['estat_tasques'] ?></td>
                 <td class="px-2 py-1 border w-auto text-center"><?= $task['inici_tasques'] ?></td>
                 <td class="px-2 py-1 border w-auto text-center"><?= $task['fi_tasques'] ?></td>
-                <td class="px-2 py-1 border w-auto text-center"><?= $task['Usuario_idUsuario'] ?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

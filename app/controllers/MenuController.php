@@ -44,12 +44,9 @@ class MenuController extends ApplicationController
 
     public function llistarTasquesAction()
     {
-        $listTasks = new Tareas();
-        $data = array();
-        $data['tasques'] = $listTasks->getTareas();
+        $tareas = Tareas::obtenerTareas();  
 
-        // Guardar los datos en una $_sesión en la línea 11 de llistarTasques.phtml
-        $_SESSION['data'] = $data;
+        $this->view->tareas = $tareas;
     }
 
     public function modificarTascaAction()
