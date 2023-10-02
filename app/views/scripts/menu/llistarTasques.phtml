@@ -1,6 +1,6 @@
 <?php $url = $this->baseUrl(); $tareas = $this->tareas; $tareaId = $this->tareaId; ?>
 
-<div class="bg-white shadow-md rounded my-6 mx-4">
+<div class="bg-white shadow-md rounded my-6 mx-4 h-screen">
     <table class="w-full border-collapse">
         <thead>
             <tr>
@@ -25,11 +25,30 @@
                     <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['inici_tasques'] ?></td>
                     <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['fi_tasques'] ?></td>
                     <td class="px-6 py-4 text-center">
-                        <form action="<?= $url ?>/veureTasca?tareaId=<?= $tareaId ?>" method="post">
-                            <input type="hidden" name="tareaId" value="<?= $tareaId ?>">
-                            <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50">Veure</button>
-                        </form>
-                    </td>
+                        <div class="flex space-x-4">
+                            <!-- Botón para Ver -->
+                            <form action="<?= $url ?>/veureTasca?tareaId=<?= $tareaId ?>" method="post">
+                                <input type="hidden" name="tareaId" value="<?= $tareaId ?>">
+                                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                    Veure
+                                </button>
+                            </form>
+
+                            <!-- Botón para Actualizar -->
+                            <form action="<?= $url ?>/actualitzarTasca?tareaId=<?= $tareaId ?>" method="post">
+                                <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300" name="actualitzar">
+                                    Actualitzar tasca
+                                </button>
+                            </form>
+
+                            <!-- Botón para Borrar -->
+                            <form action="<?= $url ?>/deleteTasca?tareaId=<?= $tareaId ?>" method="post">
+                                <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300" name="borrar" onclick="return confirm('Esteu segur que voleu esborrar aquesta tasca?')">
+                                    Borrar tasca
+                                </button>
+                            </form>
+                        </div>
+                    </td>                    
                 </tr>
             <?php endforeach; ?>
         </tbody>
