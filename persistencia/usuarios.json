@@ -1,12 +1,4 @@
 {
-    "0": {
-        "autor": "Bryan",
-        "nom_tasques": "Estudiar",
-        "descrip_tasques": "8h el finde",
-        "estat_tasques": "Actiu",
-        "inici_tasques": "2023-09-28",
-        "fi_tasques": null
-    },
     "2": {
         "autor": "Anselmo",
         "nom_tasques": "sobrevivir",
@@ -94,5 +86,13 @@
         "estat_tasques": "Finalitzat",
         "inici_tasques": "2023-09-28",
         "fi_tasques": "2023-09-29"
+    },
+    "0": {
+        "autor": "Bryanete",
+        "nom_tasques": "Estudiar",
+        "descrip_tasques": "8h el finde",
+        "estat_tasques": "Actiu",
+        "inici_tasques": "2023-09-28",
+        "fi_tasques": null
     }
 }

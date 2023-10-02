@@ -14,7 +14,9 @@
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-500 ">
-            <?php foreach ($tareas as $tareaId => $tarea): ?>
+
+            <!-- Array inversa para mostrar siempre el último indice creado o actualizado como mejor UX -->
+            <?php foreach(array_reverse($tareas, true) as $tareaId => $tarea): ?>
                 <tr class="hover:bg-lime-100" >
                     <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['autor'] ?></td>
                     <td class="px-6 py-4 whitespace-nowrap"><?= $tarea['nom_tasques'] ?></td>
