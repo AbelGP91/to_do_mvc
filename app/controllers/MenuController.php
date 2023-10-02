@@ -76,13 +76,11 @@ class MenuController extends ApplicationController
             }
         }
         
-        if (isset($_POST['borrar'])) {
-            header('Location: borrarTasca');
-            exit;
-        } elseif (isset($_POST['actualitzar'])) {
+       if (isset($_POST['actualitzar'])) {
             header('Location: actualitzarTasca');
             exit;
         }
+
     }
 
     public function actualitzarTascaAction(){
@@ -143,14 +141,20 @@ class MenuController extends ApplicationController
         
     }
 
-    public function borrarTascaAction(){  // Acción para mostrar el formulario de eliminación de tarea
-    }
 
     public function deleteTascaAction()
     {
        if(isset($_GET['tareaId'])){
             $tareaId = $_GET['tareaId'];
             $tarea = Tareas::obtenerTareaPorId($tareaId);
+
+            if ($tarea !== null) {
+                $tarea = Tareas::borrarTarea($tareaId);
+            } else {
+                header('Location: llistarTasques');
+                echo "alert('Tasca no existent')";
+                exit;
+            }
 
         header('Location: deleteTasca');  
         

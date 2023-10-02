@@ -28,7 +28,6 @@ $routes = array(
 	'/actualitzarTasca'  => 'menu#actualitzarTasca',
 
 	// delete
-	'/borrarTasca'  => 'menu#borrarTasca',
 	'/deleteTasca'  => 'menu#deleteTasca',
 	
 );

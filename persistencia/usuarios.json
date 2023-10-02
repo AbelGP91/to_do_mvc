@@ -7,78 +7,6 @@
         "inici_tasques": "2023-09-29",
         "fi_tasques": "2023-09-29"
     },
-    "3": {
-        "autor": "Anselmo",
-        "nom_tasques": "sobrevivir",
-        "descrip_tasques": "Cada dia",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": "2023-09-29"
-    },
-    "4": {
-        "autor": "Julio Cesar",
-        "nom_tasques": "conquistar la galia",
-        "descrip_tasques": "Asterix esta ahi",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": "2023-09-29"
-    },
-    "5": {
-        "autor": "Julio Cesar",
-        "nom_tasques": "conquistar la galia",
-        "descrip_tasques": "Asterix esta ahi",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": "2023-09-29"
-    },
-    "6": {
-        "autor": "Julio Cesar",
-        "nom_tasques": "conquistar la galia",
-        "descrip_tasques": "Asterix esta ahi",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": "2023-09-29"
-    },
-    "7": {
-        "autor": "Julio Cesar",
-        "nom_tasques": "conquistar la galia",
-        "descrip_tasques": "Asterix esta ahi",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": "2023-09-29"
-    },
-    "8": {
-        "autor": "Julio Cesar",
-        "nom_tasques": "conquistar la galia",
-        "descrip_tasques": "Asterix esta ahi",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": "2023-09-29"
-    },
-    "9": {
-        "autor": "Julio Cesar",
-        "nom_tasques": "conquistar la galia",
-        "descrip_tasques": "Asterix esta ahi",
-        "estat_tasques": "Finalitzat",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": "2023-09-29"
-    },
-    "10": {
-        "autor": "bryanete",
-        "nom_tasques": "dormir",
-        "descrip_tasques": "6h el finde",
-        "estat_tasques": "Pendent",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": null
-    },
-    "11": {
-        "autor": "bryanete",
-        "nom_tasques": "dormir",
-        "descrip_tasques": "6h el finde",
-        "estat_tasques": "Pendent",
-        "inici_tasques": "2023-09-29",
-        "fi_tasques": null
-    },
     "1": {
         "autor": "Paquito",
         "nom_tasques": "sprint 5 ",
@@ -93,6 +21,14 @@
         "descrip_tasques": "8h el finde",
         "estat_tasques": "Actiu",
         "inici_tasques": "2023-09-28",
+        "fi_tasques": null
+    },
+    "11": {
+        "autor": "Pancracio",
+        "nom_tasques": "dormir",
+        "descrip_tasques": "6h el finde",
+        "estat_tasques": "Pendent",
+        "inici_tasques": "2023-09-29",
         "fi_tasques": null
     }
 }
